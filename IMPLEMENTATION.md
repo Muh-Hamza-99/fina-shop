@@ -25,10 +25,14 @@
 
 ## Milestone 1 — Tenancy & Merchant Auth
 4. ✅ **Store model.** Migration per §4.1 `stores` plus FinaShop store-settings fields: `description_ar/en`, contact (`email`, `phone`, `whatsapp_phone` as E.164 via `phonelib`, `website`), Saudi national address (`country_code` default SA, `region`, `city`, `district`, `street`, `building_number`, `postal_code`), `show_stock_default`. Subdomain validation: lowercase, reserved words (`www admin app api` …). KSA ID formats (VAT 15 digits starting/ending 3, CR 10 digits, 700 number). `national_address_complete?` gates ZATCA. *Test:* model validations, normalization, uniqueness.
-5. **Tenant resolution.** `Current` (`store`, `user`, `customer`); `StoreResolver` concern resolves from `request.host` (`{slug}.fina.shop` or `custom_domain`, dev uses `{slug}.lvh.me`). Route constraints: apex → marketing/signup, subdomain → storefront + `/admin`. 404 for unknown store. *Test:* integration tests for subdomain, custom domain, unknown host.
-6. **Merchant auth.** `bin/rails generate authentication` (Rails 8) → `users`, `sessions`; add `store_id` + `role` (owner/staff) to users; admin base controller requires user of `Current.store`. *Test:* user of store A cannot access store B admin (403/redirect).
-7. **Merchant signup + trial.** Apex `/signup`: business name, email/phone, password, slug → creates `Store` (`subscription_status: trialing`, `trial_ends_at: 14.days.from_now`) + owner user, redirects to `{slug}` admin. *Test:* system test signup → lands on admin dashboard; duplicate slug errors.
-8. **Admin shell.** Bilingual sidebar layout (Dashboard, Products, Categories, Quotes, Customers, Analytics, Theme, Settings, Billing) with empty pages + locale switcher. *Test:* system test navigates every nav link in both locales.
+5. **Tenant resolution + host routing.** Three host kinds (dev uses `lvh.me:3000`):
+   - **Apex** `fina.shop` (+ `www`) → marketing, signup.
+   - **Admin** `app.fina.shop` → merchant admin at the root (no `/admin` prefix).
+   - **Storefront** `{slug}.fina.shop` or a store's `custom_domain` → buyer storefront; `StoreResolver` sets `Current.store` from `request.host`, 404 for unknown store.
+   `Current` (`store`, `user`, `customer`); route constraints per host kind. *Test:* integration tests for apex, admin host, subdomain, custom domain, unknown host.
+6. **Merchant auth (app.fina.shop).** `bin/rails generate authentication` (Rails 8) → `users`, `sessions`; one store per user (`users.store_id` + `role` owner/staff); admin sets `Current.store = Current.user.store` (never from host). Session cookie scoped to `app.fina.shop` only, so storefront/custom domains never see merchant sessions. *Test:* admin requires login; user only ever sees their own store's data; admin routes not reachable on storefront hosts.
+7. **Merchant signup + trial.** Apex `/signup`: business name, email/phone, password, slug → creates `Store` (`subscription_status: trialing`, `trial_ends_at: 14.days.from_now`) + owner user, signs in and redirects to `app.fina.shop`. *Test:* system test signup → lands on admin dashboard; duplicate slug errors.
+8. **Admin shell.** Bilingual sidebar layout (Dashboard, Products, Categories, Quotes, Customers, Analytics, Theme, Settings, Billing) with empty pages + locale switcher + "View store" link to `{slug}.fina.shop`. *Test:* system test navigates every nav link in both locales.
 
 ## Milestone 2 — Catalog & Inventory
 9. **Categories CRUD.** `categories` (store, name_ar, name_en, position, parent_id). *Test:* CRUD + tenant scoping tests.
@@ -56,7 +60,7 @@
 
 ## Milestone 5 — WhatsApp (simulator first)
 27. **`whatsapp_messages` + channel abstraction.** `Whatsapp::Channel` interface; `Whatsapp::DemoAdapter` stores outbound messages locally. `Whatsapp::NotifyJob` enqueued on quote `quoted` with interactive buttons payload (Accept/Reject/Request Revision, button ids embed quote token). *Test:* job test creates outbound message with 3 buttons.
-28. **Demo WhatsApp simulator panel.** Admin `/admin/demo/whatsapp`: phone-styled thread (Turbo Stream), clickable buttons post simulated inbound payload through the **same** `Whatsapp::InboundProcessor` used by real webhooks → TransitionService. *Test:* system test click "Accept Quote" → quote accepted, dashboard updates.
+28. **Demo WhatsApp simulator panel.** Admin `app.fina.shop/demo/whatsapp`: phone-styled thread (Turbo Stream), clickable buttons post simulated inbound payload through the **same** `Whatsapp::InboundProcessor` used by real webhooks → TransitionService. *Test:* system test click "Accept Quote" → quote accepted, dashboard updates.
 
 ## Milestone 6 — Payments (demo) & ZATCA → **end-to-end demo complete**
 29. **`payment_transactions` + `Payments::GatewayRouter`.** Schema per §4.1; adapter interface (`create_checkout`, `verify`, `capture`, `refund`); `Payments::DemoAdapter` (simulate mada 3DS success, Tabby approval, Fina Pay settlement, decline). *Test:* router picks demo adapter when no keys configured.
