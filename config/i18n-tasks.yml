@@ -7,5 +7,7 @@ data:
     - config/locales/**/*.%{locale}.yml
 
 ignore_unused:
+  # Used implicitly by Active Record (human_attribute_name, error messages).
+  - "activerecord.*"
   # Looked up dynamically by locale in shared/_locale_switcher.
   - "locales.*"

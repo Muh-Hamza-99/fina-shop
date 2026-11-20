@@ -1,0 +1,24 @@
+elshohail:
+  name_ar: الشهيل للمعدات التجارية
+  name_en: Elshohail Commercial Equipment
+  subdomain: elshohail
+  email: sales@elshohail.example
+  phone: "+966501234567"
+  whatsapp_phone: "+966501234567"
+  country_code: SA
+  region: الرياض
+  city: الرياض
+  district: العليا
+  street: طريق الملك فهد
+  building_number: "1234"
+  postal_code: "12211"
+  vat_number: "300000000000003"
+  cr_number: "1010000000"
+  subscription_status: trialing
+  trial_ends_at: <%= 10.days.from_now.to_fs(:db) %>
+
+bare:
+  name_ar: متجر جديد
+  subdomain: bare
+  subscription_status: trialing
+  trial_ends_at: <%= 14.days.from_now.to_fs(:db) %>

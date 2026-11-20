@@ -1,5 +1,32 @@
 ---
 ar:
+  activerecord:
+    attributes:
+      store:
+        building_number: رقم المبنى
+        city: المدينة
+        country_code: الدولة
+        cr_number: رقم السجل التجاري
+        custom_domain: النطاق المخصص
+        description_ar: وصف المتجر (عربي)
+        description_en: وصف المتجر (إنجليزي)
+        district: الحي
+        email: البريد الإلكتروني
+        name_ar: اسم المتجر (عربي)
+        name_en: اسم المتجر (إنجليزي)
+        phone: رقم الهاتف
+        postal_code: الرمز البريدي
+        region: المنطقة
+        show_prices_default: إظهار الأسعار
+        show_stock_default: إظهار المخزون
+        street: الشارع
+        subdomain: رابط المتجر
+        unified_number_700: الرقم الموحد 700
+        vat_number: الرقم الضريبي (VAT)
+        website: الموقع الإلكتروني
+        whatsapp_phone: واتساب
+    models:
+      store: متجر
   app_name: FinaShop
   currency:
     sar: "⃁"

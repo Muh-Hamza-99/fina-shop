@@ -1,5 +1,32 @@
 ---
 en:
+  activerecord:
+    attributes:
+      store:
+        building_number: Building Number
+        city: City
+        country_code: Country
+        cr_number: Commercial Registration Number
+        custom_domain: Custom Domain
+        description_ar: Store Description (Arabic)
+        description_en: Store Description (English)
+        district: District
+        email: Email
+        name_ar: Store Name (Arabic)
+        name_en: Store Name (English)
+        phone: Phone Number
+        postal_code: Postal Code
+        region: Region
+        show_prices_default: Show Prices
+        show_stock_default: Show Stock
+        street: Street
+        subdomain: Store URL
+        unified_number_700: Unified Number 700
+        vat_number: Tax Number (VAT)
+        website: Website
+        whatsapp_phone: WhatsApp
+    models:
+      store: Store
   app_name: FinaShop
   currency:
     sar: "⃁"
