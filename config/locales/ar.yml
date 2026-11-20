@@ -1,6 +1,8 @@
 ---
 ar:
   app_name: FinaShop
+  currency:
+    sar: "⃁"
   home:
     index:
       tagline: ضيف منتجاتك ووصّلها لمشترين جاهزين للطلب

@@ -12,4 +12,9 @@ class ApplicationHelperTest < ActionView::TestCase
   test "defaults to the current locale" do
     I18n.with_locale(:en) { assert_equal "ltr", text_direction }
   end
+
+  test "sar formats halalas in the current locale" do
+    I18n.with_locale(:en) { assert_equal "⃁ 1,234.50", sar(123_450) }
+    I18n.with_locale(:ar) { assert_equal "1,234.50 ⃁", sar(123_450) }
+  end
 end

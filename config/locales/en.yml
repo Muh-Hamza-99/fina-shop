@@ -1,6 +1,8 @@
 ---
 en:
   app_name: FinaShop
+  currency:
+    sar: "⃁"
   home:
     index:
       tagline: List your products. Reach buyers who are ready to order.
