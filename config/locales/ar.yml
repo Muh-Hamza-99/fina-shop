@@ -1,0 +1,13 @@
+---
+ar:
+  app_name: FinaShop
+  home:
+    index:
+      tagline: ضيف منتجاتك ووصّلها لمشترين جاهزين للطلب
+      title: أنشئ متجرك في دقائق
+  locales:
+    ar: العربية
+    en: English
+  shared:
+    locale_switcher:
+      label: تغيير اللغة

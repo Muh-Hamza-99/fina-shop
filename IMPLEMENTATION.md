@@ -14,12 +14,13 @@
 - Money: `bigint *_halalas` only; a `Money`-free `Halalas` formatting helper. Never floats.
 - All tenant models `belongs_to :store`, queried via `Current.store` scopes.
 - Status fields: string columns + Rails `enum ... validate: true`.
+- Copy: reuse FinaShop wording from `docs/copy/fina_shop.{ar,en}.json` (extracted from fina.shop) for any user-facing string; brand is "FinaShop".
 
 ---
 
 ## Milestone 0 — Foundation
 1. ✅ **App skeleton.** `rails new fina_shop -d postgresql --css tailwind` (Rails 8, Solid trio, Kamal, Thruster included). Add `bin/dev`, CI script `bin/ci` (rubocop, brakeman, tests). *Test:* `bin/rails test` passes; `GET /up` returns 200.
-2. **i18n + RTL base.** `config.i18n.available_locales = [:ar, :en]`, default `:ar`; locale from `?locale`/cookie/`Accept-Language`; layout sets `<html lang dir>`. Locale files `config/locales/{ar,en}.yml`; `i18n-tasks` gem to catch missing keys. *Test:* controller test asserts `dir="rtl"` for ar, `ltr` for en; `i18n-tasks missing` is empty.
+2. ✅ **i18n + RTL base.** `config.i18n.available_locales = [:ar, :en]`, default `:ar`; locale from `?locale`/cookie/`Accept-Language`; layout sets `<html lang dir>`. Locale files `config/locales/{ar,en}.yml`; `i18n-tasks` gem to catch missing keys. *Test:* controller test asserts `dir="rtl"` for ar, `ltr` for en; `i18n-tasks missing` is empty.
 3. **Money helpers.** `app/lib/halalas.rb` (`format(halalas, locale)` → `1,234.50 ر.س` / `SAR 1,234.50`, `from_sar(string)`), and `Vat.amount(taxable) = ((taxable * 15) + 50) / 100`. *Test:* unit tests incl. rounding edges (1, 49, 50, 333 halalas).
 
 ## Milestone 1 — Tenancy & Merchant Auth

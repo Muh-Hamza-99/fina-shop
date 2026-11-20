@@ -1,0 +1,10 @@
+<nav aria-label="<%= t(".label") %>" class="flex gap-3 text-sm">
+  <% I18n.available_locales.each do |locale| %>
+    <% if locale == I18n.locale %>
+      <span class="font-semibold" lang="<%= locale %>"><%= t("locales.#{locale}") %></span>
+    <% else %>
+      <%= link_to t("locales.#{locale}"), url_for(request.query_parameters.merge(locale: locale)),
+            lang: locale, class: "underline text-gray-600 hover:text-gray-900" %>
+    <% end %>
+  <% end %>
+</nav>

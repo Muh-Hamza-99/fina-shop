@@ -1,0 +1,11 @@
+base_locale: ar
+locales: [ar, en]
+
+data:
+  read:
+    - config/locales/%{locale}.yml
+    - config/locales/**/*.%{locale}.yml
+
+ignore_unused:
+  # Looked up dynamically by locale in shared/_locale_switcher.
+  - "locales.*"

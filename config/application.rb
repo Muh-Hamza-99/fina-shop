@@ -21,7 +21,12 @@ module FinaShop
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    # config.time_zone = "Central Time (US & Canada)"
+    config.time_zone = "Riyadh"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Arabic-first, bilingual storefront and admin.
+    config.i18n.available_locales = %i[ar en]
+    config.i18n.default_locale = :ar
+    config.i18n.fallbacks = [ :en ]
   end
 end
