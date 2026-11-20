@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
@@ -9,5 +7,22 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  root "home#index"
+  # fina.shop: marketing and signup
+  constraints Hosts::Apex do
+    root "home#index"
+  end
+
+  # app.fina.shop: merchant admin
+  constraints Hosts::Admin do
+    scope module: :admin, as: :admin do
+      root "dashboards#show"
+    end
+  end
+
+  # <slug>.fina.shop or a custom domain: buyer storefront
+  constraints Hosts::Storefront do
+    scope module: :storefront, as: :storefront do
+      root "homes#show"
+    end
+  end
 end

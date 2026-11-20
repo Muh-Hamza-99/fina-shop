@@ -25,7 +25,7 @@
 
 ## Milestone 1 — Tenancy & Merchant Auth
 4. ✅ **Store model.** Migration per §4.1 `stores` plus FinaShop store-settings fields: `description_ar/en`, contact (`email`, `phone`, `whatsapp_phone` as E.164 via `phonelib`, `website`), Saudi national address (`country_code` default SA, `region`, `city`, `district`, `street`, `building_number`, `postal_code`), `show_stock_default`. Subdomain validation: lowercase, reserved words (`www admin app api` …). KSA ID formats (VAT 15 digits starting/ending 3, CR 10 digits, 700 number). `national_address_complete?` gates ZATCA. *Test:* model validations, normalization, uniqueness.
-5. **Tenant resolution + host routing.** Three host kinds (dev uses `lvh.me:3000`):
+5. ✅ **Tenant resolution + host routing.** Three host kinds (dev uses `lvh.me:3000`):
    - **Apex** `fina.shop` (+ `www`) → marketing, signup.
    - **Admin** `app.fina.shop` → merchant admin at the root (no `/admin` prefix).
    - **Storefront** `{slug}.fina.shop` or a store's `custom_domain` → buyer storefront; `StoreResolver` sets `Current.store` from `request.host`, 404 for unknown store.

@@ -40,6 +40,16 @@ class Store < ApplicationRecord
 
   before_validation :start_trial, on: :create
 
+  # Finds the store served on a storefront host: <subdomain>.<root domain> or a custom domain.
+  def self.find_by_host(host)
+    host = host.to_s.downcase
+    if (subdomain = Hosts.subdomain_of(host))
+      find_by(subdomain: subdomain)
+    else
+      find_by(custom_domain: host)
+    end
+  end
+
   def self.normalize_phone(value)
     parsed = Phonelib.parse(value)
     parsed.valid? ? parsed.e164 : value.strip.presence

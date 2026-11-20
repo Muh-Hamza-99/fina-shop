@@ -28,5 +28,9 @@ module FinaShop
     config.i18n.available_locales = %i[ar en]
     config.i18n.default_locale = :ar
     config.i18n.fallbacks = [ :en ]
+
+    # Root domain for host routing (see Hosts): apex = marketing/signup,
+    # app.<root> = merchant admin, <slug>.<root> = storefronts.
+    config.x.root_domain = ENV.fetch("ROOT_DOMAIN", "fina.shop")
   end
 end

@@ -4,6 +4,9 @@
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+  # Integration tests default to www.example.com, which is the apex host.
+  config.x.root_domain = "example.com"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # While tests run files are not watched, reloading is not necessary.

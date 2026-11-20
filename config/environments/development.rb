@@ -1,6 +1,11 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  # lvh.me and all its subdomains resolve to 127.0.0.1:
+  # lvh.me:3000 (apex), app.lvh.me:3000 (admin), elshohail.lvh.me:3000 (storefront).
+  config.x.root_domain = ENV.fetch("ROOT_DOMAIN", "lvh.me")
+  config.hosts << ".lvh.me"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Make code changes take effect immediately without server restart.

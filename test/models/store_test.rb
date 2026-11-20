@@ -151,4 +151,13 @@ class StoreTest < ActiveSupport::TestCase
       assert_equal "رابط المتجر", Store.human_attribute_name(:subdomain)
     end
   end
+
+  test "finds stores by storefront host" do
+    assert_equal stores(:elshohail), Store.find_by_host("elshohail.example.com")
+    assert_equal stores(:elshohail), Store.find_by_host("Elshohail.Example.com")
+    assert_equal stores(:elshohail), Store.find_by_host("shop.elshohail.sa")
+    assert_nil Store.find_by_host("missing.example.com")
+    assert_nil Store.find_by_host("elshohail.other.com")
+    assert_nil Store.find_by_host("example.com")
+  end
 end

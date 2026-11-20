@@ -2,6 +2,7 @@ elshohail:
   name_ar: الشهيل للمعدات التجارية
   name_en: Elshohail Commercial Equipment
   subdomain: elshohail
+  custom_domain: shop.elshohail.sa
   email: sales@elshohail.example
   phone: "+966501234567"
   whatsapp_phone: "+966501234567"

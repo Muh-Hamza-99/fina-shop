@@ -27,6 +27,11 @@ ar:
         whatsapp_phone: واتساب
     models:
       store: متجر
+  admin:
+    dashboards:
+      show:
+        title: لوحة التحكم
+        welcome: حيّاك الله في لوحة تحكم متجرك
   app_name: FinaShop
   currency:
     sar: "⃁"

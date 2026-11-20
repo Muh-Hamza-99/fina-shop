@@ -27,6 +27,11 @@ en:
         whatsapp_phone: WhatsApp
     models:
       store: Store
+  admin:
+    dashboards:
+      show:
+        title: Dashboard
+        welcome: Welcome to your store dashboard
   app_name: FinaShop
   currency:
     sar: "⃁"
