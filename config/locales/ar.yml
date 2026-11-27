@@ -55,13 +55,43 @@ ar:
       store: متجر
       user: مستخدم
   admin:
+    analytics:
+      show:
+        subtitle: تابع أداء متجرك ومنتجاتك بالأرقام والتحليلات
+        title: الإحصائيات والتحليلات
+    billings:
+      show:
+        subtitle: إدارة باقتك وتفاصيل الفواتير
+        title: الفواتير والباقات
+    categories:
+      index:
+        subtitle: رتّب منتجاتك ضمن تصنيفات رئيسية وفرعية
+        title: التصنيفات
+    customers:
+      index:
+        subtitle: بيظهر العملاء هنا عند استلام طلبات التسعير
+        title: العملاء
     dashboards:
       show:
-        logout: تسجيل الخروج
         title: لوحة التحكم
         welcome: حيّاك الله في لوحة تحكم متجرك
     flash:
       rate_limited: محاولات كثيرة. يرجى المحاولة لاحقاً.
+    layout:
+      account_menu: قائمة الحساب
+      logout: تسجيل الخروج
+      navigation: القائمة الرئيسية
+      visit_store: زيارة المتجر
+    nav:
+      analytics: الإحصائيات
+      billing: الفواتير والباقات
+      categories: التصنيفات
+      customers: العملاء
+      dashboard: لوحة التحكم
+      products: المنتجات
+      quote_requests: طلبات الأسعار
+      store_settings: إعدادات المتجر
+      theme: تخصيص المظهر
     passwords:
       create:
         reset_link_sent: إذا كان البريد الإلكتروني مسجلاً، ستتلقى رابط إعادة تعيين
@@ -81,6 +111,14 @@ ar:
         title: نسيت كلمة المرور؟
       update:
         password_changed: يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة.
+    products:
+      index:
+        subtitle: إدارة منتجات متجرك
+        title: المنتجات
+    quote_requests:
+      index:
+        subtitle: إدارة طلبات التسعير الواردة من العملاء
+        title: طلبات التسعير
     sessions:
       create:
         invalid_credentials: بيانات الاعتماد غير صحيحة.
@@ -112,6 +150,14 @@ ar:
         submit: إنشاء حساب
         subtitle: أدخل معلومات حسابك للبدء في إنشاء متجرك الإلكتروني
         title: إنشاء حساب جديد
+    store_settings:
+      show:
+        subtitle: إدارة معلومات وإعدادات متجرك
+        title: إعدادات المتجر
+    themes:
+      show:
+        subtitle: خصّص شكل متجرك بما يناسب هويتك
+        title: تخصيص المظهر
   app_name: FinaShop
   currency:
     sar: "⃁"

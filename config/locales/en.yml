@@ -55,13 +55,43 @@ en:
       store: Store
       user: User
   admin:
+    analytics:
+      show:
+        subtitle: Monitor your store and product performance with real-time insights.
+        title: Analytics & Insights
+    billings:
+      show:
+        subtitle: Manage your subscription plan and billing details
+        title: Billing & Subscription
+    categories:
+      index:
+        subtitle: Create a Category Structure for Your Product Catalog
+        title: Categories
+    customers:
+      index:
+        subtitle: Customers will appear here when you receive quote requests
+        title: Customers
     dashboards:
       show:
-        logout: Logout
         title: Dashboard
         welcome: Welcome to your store dashboard
     flash:
       rate_limited: Too many attempts. Please try again later.
+    layout:
+      account_menu: Account menu
+      logout: Logout
+      navigation: Main navigation
+      visit_store: Visit Store
+    nav:
+      analytics: Analytics
+      billing: Billing & Subscription
+      categories: Categories
+      customers: Customers
+      dashboard: Dashboard
+      products: Products
+      quote_requests: Quote Requests
+      store_settings: Store Settings
+      theme: Customize Theme
     passwords:
       create:
         reset_link_sent: If the email is registered, you'll receive a password reset
@@ -81,6 +111,14 @@ en:
         title: Forgot password?
       update:
         password_changed: You can now sign in with your new password.
+    products:
+      index:
+        subtitle: Manage your store products
+        title: Products
+    quote_requests:
+      index:
+        subtitle: Manage and track customer quote requests.
+        title: Quote Requests
     sessions:
       create:
         invalid_credentials: Invalid credentials.
@@ -112,6 +150,14 @@ en:
         submit: Create Account
         subtitle: Enter your account information to start creating your online store
         title: Create New Account
+    store_settings:
+      show:
+        subtitle: Manage your store information and settings
+        title: Store Settings
+    themes:
+      show:
+        subtitle: Customize your store's look and feel
+        title: Customize Theme
   app_name: FinaShop
   currency:
     sar: "⃁"

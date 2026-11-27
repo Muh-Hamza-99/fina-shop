@@ -1,10 +1,13 @@
 require "test_helper"
 
 class AdminAccessTest < ActionDispatch::IntegrationTest
-  test "admin requires sign in" do
+  test "every admin section requires sign in" do
     host! Hosts.admin_host
-    get admin_root_path
-    assert_redirected_to new_admin_session_path
+    [ admin_root_path, admin_products_path, admin_categories_path, admin_quote_requests_path, admin_customers_path,
+      admin_analytics_path, admin_theme_path, admin_store_settings_path, admin_billing_path ].each do |path|
+      get path
+      assert_redirected_to new_admin_session_path, "#{path} should require sign in"
+    end
   end
 
   test "store comes from the signed-in user, not the host or params" do

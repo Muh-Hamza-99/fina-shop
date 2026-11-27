@@ -1,4 +1,6 @@
 class Admin::SignupsController < Admin::BaseController
+  layout "application"
+
   allow_unauthenticated_access
   before_action :redirect_signed_in_user
   rate_limit to: 10, within: 3.minutes, only: :create,

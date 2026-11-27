@@ -1,0 +1,11 @@
+<nav aria-label="<%= t("admin.layout.navigation") %>" class="flex md:flex-col md:flex-1 gap-1 px-3 pb-3 overflow-x-auto md:overflow-y-auto text-sm">
+  <%= admin_nav_link t("admin.nav.dashboard"), admin_root_path, section: "dashboards" %>
+  <%= admin_nav_link t("admin.nav.products"), admin_products_path, section: "products" %>
+  <%= admin_nav_link t("admin.nav.categories"), admin_categories_path, section: "categories" %>
+  <%= admin_nav_link t("admin.nav.quote_requests"), admin_quote_requests_path, section: "quote_requests" %>
+  <%= admin_nav_link t("admin.nav.customers"), admin_customers_path, section: "customers" %>
+  <%= admin_nav_link t("admin.nav.analytics"), admin_analytics_path, section: "analytics" %>
+  <%= admin_nav_link t("admin.nav.theme"), admin_theme_path, section: "themes" %>
+  <%= admin_nav_link t("admin.nav.store_settings"), admin_store_settings_path, section: "store_settings" %>
+  <%= admin_nav_link t("admin.nav.billing"), admin_billing_path, section: "billings" %>
+</nav>

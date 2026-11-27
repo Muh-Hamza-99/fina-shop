@@ -1,14 +1,1 @@
-<% content_for :title, t(".title") %>
-
-<div class="w-full">
-  <div class="flex justify-between items-center mb-8">
-    <%= render "shared/locale_switcher" %>
-    <%= button_to t(".logout"), admin_session_path, method: :delete, class: "text-sm underline text-gray-600 hover:text-gray-900 cursor-pointer" %>
-  </div>
-
-  <%= render "admin/shared/flash" %>
-
-  <h1 class="text-3xl font-bold"><%= t(".title") %></h1>
-  <p class="mt-2 text-gray-600"><%= t(".welcome") %></p>
-  <p class="mt-6 text-xl font-semibold" id="current_store"><%= Current.store.name %></p>
-</div>
+<%= render "admin/shared/page_header", title: t(".title"), subtitle: t(".welcome") %>

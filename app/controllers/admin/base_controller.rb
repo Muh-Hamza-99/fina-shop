@@ -3,6 +3,8 @@
 class Admin::BaseController < ApplicationController
   include Authentication
 
+  layout "admin"
+
   before_action :set_current_store
 
   private

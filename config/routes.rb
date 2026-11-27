@@ -17,6 +17,15 @@ Rails.application.routes.draw do
     scope module: :admin, as: :admin do
       root "dashboards#show"
 
+      resources :products, only: :index
+      resources :categories, only: :index
+      resources :quote_requests, only: :index
+      resources :customers, only: :index
+      resource :analytics, only: :show
+      resource :theme, only: :show
+      resource :store_settings, only: :show
+      resource :billing, only: :show
+
       get "signup", to: "signups#new"
       post "signup", to: "signups#create"
       resource :session, only: %i[new create destroy]

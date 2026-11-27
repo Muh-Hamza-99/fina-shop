@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>" dir="<%= text_direction %>">
+  <head>
+    <%= render "layouts/head" %>
+  </head>
+
+  <body class="bg-gray-50 text-gray-900">
+    <div class="min-h-screen md:flex">
+      <aside class="md:w-64 shrink-0 md:sticky md:top-0 md:h-screen flex flex-col bg-white border-b md:border-b-0 md:border-e border-gray-200">
+        <div class="px-5 py-4">
+          <p class="text-lg font-bold"><%= t("app_name") %></p>
+          <p class="text-sm text-gray-600 truncate" id="current_store"><%= Current.store.name %></p>
+        </div>
+        <%= render "admin/shared/nav" %>
+        <%= render "admin/shared/user_menu" %>
+      </aside>
+
+      <div class="flex-1 min-w-0">
+        <header class="flex flex-wrap items-center justify-end gap-4 px-6 py-3 bg-white border-b border-gray-200 text-sm">
+          <%= link_to t("admin.layout.visit_store"), storefront_root_url(host: Hosts.store_host(Current.store)),
+                target: "_blank", rel: "noopener", class: "link-subtle", id: "visit_store" %>
+          <%= render "shared/locale_switcher" %>
+        </header>
+
+        <main class="p-6">
+          <%= render "admin/shared/flash" %>
+          <%= yield %>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
