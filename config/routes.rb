@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   constraints Hosts::Admin do
     scope module: :admin, as: :admin do
       root "dashboards#show"
+
+      resource :session, only: %i[new create destroy]
+      resources :passwords, param: :token, only: %i[new create edit update]
     end
   end
 

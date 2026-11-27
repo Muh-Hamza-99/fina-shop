@@ -1,0 +1,32 @@
+<% content_for :title, t(".title") %>
+
+<div class="mx-auto md:w-2/3 w-full">
+  <div class="flex justify-end mb-8">
+    <%= render "shared/locale_switcher" %>
+  </div>
+
+  <%= render "admin/shared/flash" %>
+
+  <h1 class="font-bold text-4xl"><%= t(".title") %></h1>
+  <p class="mt-2 text-gray-600"><%= t(".subtitle") %></p>
+
+  <%= form_with url: admin_session_path, class: "contents" do |form| %>
+    <div class="my-5">
+      <%= form.label :email_address, t(".email") %>
+      <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", dir: "ltr", value: params[:email_address], class: "form-input" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :password, t(".password") %>
+      <%= form.password_field :password, required: true, autocomplete: "current-password", maxlength: 72, dir: "ltr", class: "form-input" %>
+    </div>
+
+    <div class="sm:flex sm:items-center sm:gap-4">
+      <%= form.submit t(".submit"), class: "btn-primary" %>
+
+      <div class="mt-4 text-sm text-gray-500 sm:mt-0">
+        <%= link_to t(".forgot_password"), new_admin_password_path, class: "link-subtle" %>
+      </div>
+    </div>
+  <% end %>
+</div>

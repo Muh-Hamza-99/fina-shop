@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_20_214228) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_27_150201) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "sessions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "ip_address"
+    t.string "user_agent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
 
   create_table "stores", force: :cascade do |t|
     t.string "name_ar", null: false
@@ -48,4 +57,19 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_20_214228) do
     t.index ["custom_domain"], name: "index_stores_on_custom_domain", unique: true
     t.index ["subdomain"], name: "index_stores_on_subdomain", unique: true
   end
+
+  create_table "users", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.string "name", null: false
+    t.string "email_address", null: false
+    t.string "password_digest", null: false
+    t.string "role", default: "staff", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email_address"], name: "index_users_on_email_address", unique: true
+    t.index ["store_id"], name: "index_users_on_store_id"
+  end
+
+  add_foreign_key "sessions", "users"
+  add_foreign_key "users", "stores"
 end

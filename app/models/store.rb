@@ -5,6 +5,8 @@ class Store < ApplicationRecord
   ].freeze
   NATIONAL_ADDRESS_FIELDS = %i[region city district street building_number postal_code].freeze
 
+  has_many :users, dependent: :destroy
+
   enum :subscription_status, %w[trialing active past_due canceled].index_by(&:itself), validate: true
 
   normalizes :subdomain, :custom_domain, with: ->(value) { value.strip.downcase.presence }

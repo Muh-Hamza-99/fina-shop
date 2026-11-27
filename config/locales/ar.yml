@@ -25,13 +25,52 @@ ar:
         vat_number: الرقم الضريبي (VAT)
         website: الموقع الإلكتروني
         whatsapp_phone: واتساب
+      user:
+        email_address: البريد الإلكتروني
+        name: الاسم الكامل
+        password: كلمة المرور
+        password_confirmation: تأكيد كلمة المرور
+        role: الدور
     models:
       store: متجر
+      user: مستخدم
   admin:
     dashboards:
       show:
+        logout: تسجيل الخروج
         title: لوحة التحكم
         welcome: حيّاك الله في لوحة تحكم متجرك
+    flash:
+      rate_limited: محاولات كثيرة. يرجى المحاولة لاحقاً.
+    passwords:
+      create:
+        reset_link_sent: إذا كان البريد الإلكتروني مسجلاً، ستتلقى رابط إعادة تعيين
+          كلمة المرور.
+      edit:
+        confirm_password: تأكيد كلمة المرور
+        new_password: كلمة المرور الجديدة
+        submit: تغيير كلمة المرور
+        subtitle: أدخل كلمة المرور الجديدة
+        title: إعادة تعيين كلمة المرور
+      invalid_link: رابط إعادة تعيين كلمة المرور غير صالح أو مفقود.
+      new:
+        back_to_login: العودة لتسجيل الدخول
+        email: البريد الإلكتروني
+        submit: إرسال رابط إعادة التعيين
+        subtitle: أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة التعيين
+        title: نسيت كلمة المرور؟
+      update:
+        password_changed: يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة.
+    sessions:
+      create:
+        invalid_credentials: بيانات الاعتماد غير صحيحة.
+      new:
+        email: البريد الإلكتروني
+        forgot_password: نسيت كلمة المرور؟
+        password: كلمة المرور
+        submit: تسجيل الدخول
+        subtitle: أدخل حسابك للمتابعة
+        title: تسجيل الدخول
   app_name: FinaShop
   currency:
     sar: "⃁"
@@ -42,6 +81,13 @@ ar:
   locales:
     ar: العربية
     en: English
+  passwords_mailer:
+    reset:
+      body: 'وصلنا طلب لإعادة تعيين كلمة المرور. استخدم الرابط التالي لاختيار كلمة
+        مرور جديدة:'
+      expires_in: تنتهي صلاحية هذا الرابط خلال %{time}.
+      link: إعادة تعيين كلمة المرور
+      subject: إعادة تعيين كلمة مرور FinaShop
   shared:
     locale_switcher:
       label: تغيير اللغة

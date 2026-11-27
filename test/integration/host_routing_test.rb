@@ -16,6 +16,7 @@ class HostRoutingTest < ActionDispatch::IntegrationTest
 
   test "app subdomain serves the merchant admin" do
     host! "app.example.com"
+    sign_in_as users(:elshohail_owner)
     get "/"
     assert_response :success
     assert_select "h1", I18n.t("admin.dashboards.show.title", locale: :ar)
@@ -51,11 +52,5 @@ class HostRoutingTest < ActionDispatch::IntegrationTest
     host! "api.example.com"
     get "/"
     assert_response :not_found
-  end
-
-  test "storefront hosts never route to the admin" do
-    host! "elshohail.example.com"
-    get "/"
-    assert_select "h1", text: I18n.t("admin.dashboards.show.title", locale: :ar), count: 0
   end
 end

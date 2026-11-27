@@ -25,13 +25,52 @@ en:
         vat_number: Tax Number (VAT)
         website: Website
         whatsapp_phone: WhatsApp
+      user:
+        email_address: Email
+        name: Full Name
+        password: Password
+        password_confirmation: Confirm Password
+        role: Role
     models:
       store: Store
+      user: User
   admin:
     dashboards:
       show:
+        logout: Logout
         title: Dashboard
         welcome: Welcome to your store dashboard
+    flash:
+      rate_limited: Too many attempts. Please try again later.
+    passwords:
+      create:
+        reset_link_sent: If the email is registered, you'll receive a password reset
+          link.
+      edit:
+        confirm_password: Confirm Password
+        new_password: New Password
+        submit: Change Password
+        subtitle: Enter your new password
+        title: Reset Password
+      invalid_link: The password reset link is invalid or missing.
+      new:
+        back_to_login: Back to Sign In
+        email: Email
+        submit: Send Reset Link
+        subtitle: Enter your email and we'll send you a reset link
+        title: Forgot password?
+      update:
+        password_changed: You can now sign in with your new password.
+    sessions:
+      create:
+        invalid_credentials: Invalid credentials.
+      new:
+        email: Email
+        forgot_password: Forgot password?
+        password: Password
+        submit: Sign In
+        subtitle: Enter your account to continue
+        title: Sign In
   app_name: FinaShop
   currency:
     sar: "⃁"
@@ -42,6 +81,13 @@ en:
   locales:
     ar: العربية
     en: English
+  passwords_mailer:
+    reset:
+      body: 'We received a request to reset your password. Use the link below to choose
+        a new one:'
+      expires_in: This link expires in %{time}.
+      link: Reset Password
+      subject: Reset your FinaShop password
   shared:
     locale_switcher:
       label: Switch language

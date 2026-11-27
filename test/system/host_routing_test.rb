@@ -6,7 +6,7 @@ class HostRoutingSystemTest < ApplicationSystemTestCase
     assert_selector "h1", text: I18n.t("home.index.title", locale: :en)
 
     visit_host Hosts.admin_host, "/?locale=en"
-    assert_selector "h1", text: I18n.t("admin.dashboards.show.title", locale: :en)
+    assert_selector "h1", text: I18n.t("admin.sessions.new.title", locale: :en)
 
     visit_host Hosts.store_host(stores(:elshohail)), "/?locale=en"
     assert_selector "h1", text: stores(:elshohail).name_en
