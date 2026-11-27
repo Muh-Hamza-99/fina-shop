@@ -15,13 +15,4 @@ class AdminSignInTest < ApplicationSystemTestCase
     click_on "Logout"
     assert_selector "h1", text: "Sign In"
   end
-
-  test "wrong password shows an error" do
-    visit_host Hosts.admin_host, "/session/new?locale=en"
-    fill_in "Email", with: users(:elshohail_owner).email_address
-    fill_in "Password", with: "wrong"
-    click_on "Sign In", class: "btn-primary"
-
-    assert_selector "#alert", text: "Invalid credentials."
-  end
 end

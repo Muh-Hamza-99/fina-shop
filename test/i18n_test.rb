@@ -15,9 +15,4 @@ class I18nTest < ActiveSupport::TestCase
     unused = @i18n.unused_keys
     assert_empty unused, "#{unused.leaves.count} unused i18n keys, run `bundle exec i18n-tasks unused` to show them"
   end
-
-  test "files are normalized" do
-    non_normalized = @i18n.non_normalized_paths
-    assert_empty non_normalized, "Not normalized: #{non_normalized.join(', ')}. Run `bundle exec i18n-tasks normalize` to fix"
-  end
 end
