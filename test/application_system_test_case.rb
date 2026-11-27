@@ -21,6 +21,12 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   # so system tests can visit apex, app. and store subdomains without DNS.
   driven_by :selenium, using: :headless_chrome, screen_size: [ 1400, 1400 ] do |options|
     options.add_argument("--host-resolver-rules=MAP #{Hosts.root_domain} 127.0.0.1, MAP *.#{Hosts.root_domain} 127.0.0.1")
+
+    # After a form with new-password fields is submitted, Chrome's "Save password?"
+    # and leaked-password prompts swallow clicks on the page for a while.
+    options.add_preference("credentials_enable_service", false)
+    options.add_preference("profile.password_manager_enabled", false)
+    options.add_preference("profile.password_manager_leak_detection", false)
   end
 
   Capybara.server_host = "127.0.0.1"

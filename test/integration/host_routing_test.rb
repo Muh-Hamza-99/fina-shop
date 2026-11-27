@@ -53,4 +53,11 @@ class HostRoutingTest < ActionDispatch::IntegrationTest
     get "/"
     assert_response :not_found
   end
+
+  test "apex links to signup and sign in on the admin host" do
+    host! "example.com"
+    get "/"
+    assert_select "a[href=?]", "http://app.example.com/signup"
+    assert_select "a[href=?]", "http://app.example.com/session/new"
+  end
 end

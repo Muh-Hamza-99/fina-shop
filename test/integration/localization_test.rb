@@ -38,4 +38,9 @@ class LocalizationTest < ActionDispatch::IntegrationTest
     get root_path
     assert_select "a[href=?][lang=en]", root_path(locale: :en)
   end
+
+  test "locale links are not prefetched on hover" do
+    get root_path
+    assert_select "a[lang=en][data-turbo-prefetch=false]"
+  end
 end

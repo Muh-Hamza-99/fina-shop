@@ -7,4 +7,9 @@
 
   <h1 class="text-4xl font-bold"><%= t(".title") %></h1>
   <p class="mt-4 text-lg text-gray-600"><%= t(".tagline") %></p>
+
+  <div class="mt-8 flex flex-wrap items-center gap-4">
+    <%= link_to t(".start_free"), admin_signup_url(host: Hosts.admin_host), class: "btn-primary" %>
+    <%= link_to t(".have_account"), new_admin_session_url(host: Hosts.admin_host), class: "link-subtle" %>
+  </div>
 </div>

@@ -1,0 +1,11 @@
+<%# locals: (form:, field:, label:, hint: nil, hint_data: {}) -%>
+<div class="my-5">
+  <%= form.label field, label %>
+  <%= yield %>
+  <% if hint %>
+    <%= tag.p hint, class: "mt-1 text-sm text-gray-500", data: hint_data %>
+  <% end %>
+  <% form.object.errors[field].each do |message| %>
+    <p class="mt-1 text-sm text-red-600" id="<%= field %>_error"><%= message %></p>
+  <% end %>
+</div>

@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     scope module: :admin, as: :admin do
       root "dashboards#show"
 
+      get "signup", to: "signups#new"
+      post "signup", to: "signups#create"
       resource :session, only: %i[new create destroy]
       resources :passwords, param: :token, only: %i[new create edit update]
     end

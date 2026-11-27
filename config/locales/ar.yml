@@ -31,6 +31,26 @@ ar:
         password: كلمة المرور
         password_confirmation: تأكيد كلمة المرور
         role: الدور
+    errors:
+      models:
+        store:
+          attributes:
+            subdomain:
+              exclusion: عنوان المتجر هذا غير متاح. يرجى اختيار عنوان آخر.
+              invalid: يجب أن يحتوي على أحرف إنجليزية صغيرة وأرقام وشرطات فقط (بدون
+                مسافات)
+              taken: عنوان المتجر هذا غير متاح. يرجى اختيار عنوان آخر.
+        user:
+          attributes:
+            email_address:
+              invalid: البريد الإلكتروني غير صالح
+              taken: هذا البريد الإلكتروني مستخدم بالفعل. يرجى اختيار بريد آخر.
+            name:
+              too_short: الاسم يجب أن يكون حرفين على الأقل
+            password:
+              too_short: كلمة المرور يجب أن تكون 8 أحرف على الأقل
+            password_confirmation:
+              confirmation: كلمات المرور غير متطابقة
     models:
       store: متجر
       user: مستخدم
@@ -65,17 +85,40 @@ ar:
       create:
         invalid_credentials: بيانات الاعتماد غير صحيحة.
       new:
+        create_account: إنشاء حساب
         email: البريد الإلكتروني
         forgot_password: نسيت كلمة المرور؟
+        no_account: ليس لديك حساب؟
         password: كلمة المرور
         submit: تسجيل الدخول
         subtitle: أدخل حسابك للمتابعة
         title: تسجيل الدخول
+    signups:
+      create:
+        created: تم إنشاء متجرك بنجاح!
+      new:
+        account_info: أنشئ حسابك
+        email: البريد الإلكتروني
+        have_account: لديك حساب بالفعل؟
+        name: الاسم الكامل
+        password: كلمة المرور
+        password_confirmation: تأكيد كلمة المرور
+        sign_in: تسجيل الدخول
+        store_info: معلومات المتجر
+        store_name_ar: اسم المتجر (عربي)
+        store_name_en: اسم المتجر (إنجليزي) (اختياري)
+        subdomain: رابط المتجر
+        subdomain_preview: 'رابط متجرك سيكون: %{url}'
+        submit: إنشاء حساب
+        subtitle: أدخل معلومات حسابك للبدء في إنشاء متجرك الإلكتروني
+        title: إنشاء حساب جديد
   app_name: FinaShop
   currency:
     sar: "⃁"
   home:
     index:
+      have_account: عندك حساب؟ سجّل دخول
+      start_free: إنشئ متجرك مجاناً
       tagline: ضيف منتجاتك ووصّلها لمشترين جاهزين للطلب
       title: أنشئ متجرك في دقائق
   locales:

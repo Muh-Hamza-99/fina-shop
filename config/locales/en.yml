@@ -31,6 +31,26 @@ en:
         password: Password
         password_confirmation: Confirm Password
         role: Role
+    errors:
+      models:
+        store:
+          attributes:
+            subdomain:
+              exclusion: This store URL is not available. Please choose another.
+              invalid: Must contain only lowercase English letters, numbers, and hyphens
+                (no spaces)
+              taken: This store URL is not available. Please choose another.
+        user:
+          attributes:
+            email_address:
+              invalid: Invalid email address
+              taken: This email is already in use. Please choose another email.
+            name:
+              too_short: Name must be at least 2 characters
+            password:
+              too_short: Password must be at least 8 characters
+            password_confirmation:
+              confirmation: Passwords do not match
     models:
       store: Store
       user: User
@@ -65,17 +85,40 @@ en:
       create:
         invalid_credentials: Invalid credentials.
       new:
+        create_account: Create Account
         email: Email
         forgot_password: Forgot password?
+        no_account: Don't have an account?
         password: Password
         submit: Sign In
         subtitle: Enter your account to continue
         title: Sign In
+    signups:
+      create:
+        created: Your store has been created successfully!
+      new:
+        account_info: Create your account
+        email: Email
+        have_account: Already have an account?
+        name: Full Name
+        password: Password
+        password_confirmation: Confirm Password
+        sign_in: Sign In
+        store_info: Store Information
+        store_name_ar: Store Name (Arabic)
+        store_name_en: Store Name (English) (optional)
+        subdomain: Store URL
+        subdomain_preview: 'Your store URL will be: %{url}'
+        submit: Create Account
+        subtitle: Enter your account information to start creating your online store
+        title: Create New Account
   app_name: FinaShop
   currency:
     sar: "⃁"
   home:
     index:
+      have_account: Already have an account? Sign in
+      start_free: Start your store free
       tagline: List your products. Reach buyers who are ready to order.
       title: Create your store in minutes
   locales:
