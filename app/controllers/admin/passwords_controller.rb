@@ -1,5 +1,5 @@
 class Admin::PasswordsController < Admin::BaseController
-  layout "application"
+  layout "auth"
 
   allow_unauthenticated_access
   before_action :set_user_by_token, only: %i[ edit update ]

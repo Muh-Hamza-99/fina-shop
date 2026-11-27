@@ -3,7 +3,7 @@ require "application_system_test_case"
 class MerchantSignupTest < ApplicationSystemTestCase
   test "merchant signs up from the landing page and lands on their dashboard" do
     visit root_path(locale: :en)
-    click_on "Start your store free"
+    click_on "Get Started", match: :first
 
     fill_in "Store Name (Arabic)", with: "متجر الدمام"
     fill_in "Store Name (English) (optional)", with: "Dammam Store"

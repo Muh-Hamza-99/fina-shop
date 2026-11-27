@@ -4,7 +4,7 @@ class HostRoutingTest < ActionDispatch::IntegrationTest
   test "apex serves the marketing home page" do
     host! "example.com"
     get "/"
-    assert_select "h1", I18n.t("home.index.title", locale: :ar)
+    assert_select "h1", I18n.t("home.index.hero.title", locale: :ar)
   end
 
   test "app subdomain serves the merchant admin" do

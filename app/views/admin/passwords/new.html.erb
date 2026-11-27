@@ -1,27 +1,19 @@
 <% content_for :title, t(".title") %>
 
-<div class="mx-auto md:w-2/3 w-full">
-  <div class="flex justify-end mb-8">
-    <%= render "shared/locale_switcher" %>
+<h1 class="text-3xl"><%= t(".title") %></h1>
+<p class="mt-2 text-muted"><%= t(".subtitle") %></p>
+
+<%= form_with url: admin_passwords_path, class: "contents" do |form| %>
+  <div class="my-5">
+    <%= form.label :email_address, t(".email") %>
+    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", dir: "ltr", value: params[:email_address], class: "form-input" %>
   </div>
 
-  <%= render "admin/shared/flash" %>
+  <div class="sm:flex sm:items-center sm:gap-4">
+    <%= form.submit t(".submit"), class: "btn-primary" %>
 
-  <h1 class="font-bold text-4xl"><%= t(".title") %></h1>
-  <p class="mt-2 text-gray-600"><%= t(".subtitle") %></p>
-
-  <%= form_with url: admin_passwords_path, class: "contents" do |form| %>
-    <div class="my-5">
-      <%= form.label :email_address, t(".email") %>
-      <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", dir: "ltr", value: params[:email_address], class: "form-input" %>
+    <div class="mt-4 text-sm text-muted sm:mt-0">
+      <%= link_to t(".back_to_login"), new_admin_session_path, class: "link-subtle" %>
     </div>
-
-    <div class="sm:flex sm:items-center sm:gap-4">
-      <%= form.submit t(".submit"), class: "btn-primary" %>
-
-      <div class="mt-4 text-sm text-gray-500 sm:mt-0">
-        <%= link_to t(".back_to_login"), new_admin_session_path, class: "link-subtle" %>
-      </div>
-    </div>
-  <% end %>
-</div>
+  </div>
+<% end %>

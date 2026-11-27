@@ -4,25 +4,25 @@
     <%= render "layouts/head" %>
   </head>
 
-  <body class="bg-gray-50 text-gray-900">
+  <body class="bg-navy">
     <div class="min-h-screen md:flex">
-      <aside class="md:w-64 shrink-0 md:sticky md:top-0 md:h-screen flex flex-col bg-white border-b md:border-b-0 md:border-e border-gray-200">
-        <div class="px-5 py-4">
-          <p class="text-lg font-bold"><%= t("app_name") %></p>
-          <p class="text-sm text-gray-600 truncate" id="current_store"><%= Current.store.name %></p>
+      <aside class="flex shrink-0 flex-col text-white md:sticky md:top-0 md:h-screen md:w-64">
+        <div class="px-6 pb-4 pt-6">
+          <%= link_to admin_root_path, class: "logo text-white" do %>fina<i>✦</i>shop<% end %>
+          <p class="mt-1 truncate text-sm text-navy-text" id="current_store"><%= Current.store.name %></p>
         </div>
         <%= render "admin/shared/nav" %>
         <%= render "admin/shared/user_menu" %>
       </aside>
 
-      <div class="flex-1 min-w-0">
-        <header class="flex flex-wrap items-center justify-end gap-4 px-6 py-3 bg-white border-b border-gray-200 text-sm">
-          <%= link_to t("admin.layout.visit_store"), storefront_root_url(host: Hosts.store_host(Current.store)),
-                target: "_blank", rel: "noopener", class: "link-subtle", id: "visit_store" %>
+      <div class="flex min-w-0 flex-1 flex-col bg-panel md:my-2.5 md:me-2.5 md:min-h-[calc(100vh-1.25rem)] md:rounded-[20px]">
+        <header class="flex flex-wrap items-center justify-end gap-4 px-6 py-4 text-sm">
+          <%= link_to storefront_root_url(host: Hosts.store_host(Current.store)), target: "_blank", rel: "noopener",
+                class: "link-subtle", id: "visit_store" do %><%= t("admin.layout.visit_store") %> <span class="flip-rtl" aria-hidden="true">↗</span><% end %>
           <%= render "shared/locale_switcher" %>
         </header>
 
-        <main class="p-6">
+        <main class="px-6 pb-10">
           <%= render "admin/shared/flash" %>
           <%= yield %>
         </main>

@@ -1,0 +1,6 @@
+<%# locals: (order:) -%>
+<div class="ord">
+  <div class="avatar size-9 rounded-[10px] text-[13px]" data-field="initials"><%= order[0] %></div>
+  <div><span data-field="name"><%= order[1] %></span><small><%= t("home.index.preview.invoice_sent") %></small></div>
+  <b data-field="amount"><%= order[2] %></b>
+</div>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>" dir="<%= text_direction %>">
+  <head>
+    <%= render "layouts/head" %>
+  </head>
+
+  <body class="bg-glow min-h-screen">
+    <div class="mx-auto max-w-xl px-5 py-10">
+      <div class="mb-8 flex items-center justify-between">
+        <%= link_to root_url(host: Hosts.apex_host), class: "logo" do %>fina<i>✦</i>shop<% end %>
+        <%= render "shared/locale_switcher" %>
+      </div>
+
+      <div class="card">
+        <%= render "admin/shared/flash" %>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

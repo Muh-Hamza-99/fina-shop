@@ -5,7 +5,7 @@
     <% else %>
       <%# No hover prefetch: the request saves the locale cookie, so a prefetch would switch language without a click. %>
       <%= link_to t("locales.#{locale}"), url_for(request.query_parameters.merge(locale: locale)),
-            lang: locale, data: { turbo_prefetch: false }, class: "underline text-gray-600 hover:text-gray-900" %>
+            lang: locale, data: { turbo_prefetch: false }, class: "text-muted underline decoration-lime-strong decoration-2 underline-offset-4 hover:text-ink" %>
     <% end %>
   <% end %>
 </nav>

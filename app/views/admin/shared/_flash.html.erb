@@ -1,7 +1,7 @@
 <% if alert = flash[:alert] %>
-  <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+  <p class="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 font-medium text-red-700" id="alert"><%= alert %></p>
 <% end %>
 
 <% if notice = flash[:notice] %>
-  <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <p class="mb-5 rounded-xl border border-lime-strong bg-lime-soft px-4 py-3 font-medium text-ink" id="notice"><%= notice %></p>
 <% end %>

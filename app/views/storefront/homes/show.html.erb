@@ -1,12 +1,12 @@
 <% content_for :title, Current.store.name %>
 
-<div class="w-full">
-  <div class="flex justify-end mb-8">
+<div class="mx-auto max-w-5xl px-5 py-10">
+  <div class="mb-10 flex justify-end">
     <%= render "shared/locale_switcher" %>
   </div>
 
-  <h1 class="text-3xl font-bold"><%= Current.store.name %></h1>
+  <h1 class="text-4xl"><%= Current.store.name %></h1>
   <% if (description = Current.store.description).present? %>
-    <p class="mt-2 text-gray-600"><%= description %></p>
+    <p class="mt-3 text-lg text-muted"><%= description %></p>
   <% end %>
 </div>

@@ -1,5 +1,5 @@
 class Admin::SignupsController < Admin::BaseController
-  layout "application"
+  layout "auth"
 
   allow_unauthenticated_access
   before_action :redirect_signed_in_user

@@ -125,7 +125,9 @@ en:
     dashboards:
       show:
         title: Dashboard
+        trial_days_left: "%{days} days left in trial"
         welcome: Welcome to your store dashboard
+        your_store: Your store
     flash:
       rate_limited: Too many attempts. Please try again later.
     layout:
@@ -214,10 +216,119 @@ en:
     sar: "⃁"
   home:
     index:
-      have_account: Already have an account? Sign in
-      start_free: Start your store free
-      tagline: List your products. Reach buyers who are ready to order.
-      title: Create your store in minutes
+      catalog:
+        body: Snap a photo, list the product and manage your store with the FinaShop
+          app.
+        eyebrow: Your catalog
+        product: Arabica coffee, 12kg
+        product_meta: Dry goods · Wholesale
+        steps:
+        - Photo added
+        - Product listed
+        - Order received
+        - Invoice issued
+        title_1: Add products.
+        title_2: Right from your phone.
+      cta:
+        body: Talk to our team in Dammam, or start your store today.
+        earn_more: Earn More.
+        email: Email us
+        sell_more: Sell More.
+        title: Ready to maximize your returns?
+        whatsapp: WhatsApp
+      footer:
+        company: Company
+        contact: Contact us
+        location: Dammam, Kingdom of Saudi Arabia
+        rights: All rights reserved.
+        tagline: Maximize Your Wholesale Returns Through An AI-Driven E-Commerce Presence
+        zatca: ZATCA-compliant e-invoicing • Phase 1 & 2 ready
+      hero:
+        eyebrow: AI-driven wholesale e-commerce
+        how_it_works: How it works
+        sub: FinaShop gives your wholesale business an AI-driven e-commerce presence,
+          with logistics, payments and ZATCA-compliant invoicing built in.
+        title: Maximize your wholesale returns.
+      nav:
+        get_started: Get Started
+        how: How it works
+        label: Main
+        login: Log in
+        why: Why FinaShop
+      orders:
+        body: From checkout to delivery to payment, every order stays in one place.
+        customer: Nakhla Mart
+        customer_initials: NM
+        eyebrow: Your orders
+        order_html: Order %{number}
+        steps:
+        - Order placed
+        - Picked up by delivery partner
+        - Payment received
+        - E-invoice sent
+        title_1: Sell. Ship.
+        title_2: Get paid.
+      preview:
+        dashboard: Dashboard
+        invoice_sent: E-invoice sent
+        label: FinaShop dashboard preview
+        new_order: New order
+        orders:
+        - initials: AF
+          name: Alfaisal Foods
+        - initials: NM
+          name: Nakhla Mart
+        - initials: WG
+          name: Wahat Grocers
+        - initials: RS
+          name: Red Sea Supplies
+        - initials: NJ
+          name: Najd Wholesale
+        orders_and_invoices: Orders & Invoices
+        products: Products
+        reports: Reports
+        store_initial: "N"
+        store_name: Nakhla Trading
+        wholesale: Wholesale
+        your_store: Your store
+      why:
+        compliant:
+          eyebrow: Compliant
+          foot: Every order can become a compliant invoice, with no extra tool to
+            run.
+          invoice: Invoice
+          steps:
+          - Invoice created
+          - Signed and stamped
+          - Reported to ZATCA
+          title: ZATCA e-invoicing, Phase 1 & 2 ready
+        eyebrow: Why FinaShop
+        simple:
+          eyebrow: Simple
+          foot: Turn on delivery and payment services right from your account when
+            you register.
+          strip_1:
+          - Add products
+          - Activate logistics
+          - Accept payments
+          - Issue invoices
+          strip_2:
+          - Deliver orders
+          - Manage your catalog
+          - Serve customers
+          title: Logistics and payments, built in
+        smart:
+          building: Building
+          eyebrow: Smart
+          foot: An AI-driven e-commerce presence that works to maximize your wholesale
+            returns.
+          presence: Your e-commerce presence
+          reading: Reading your products…
+          ready: Your store is ready
+          title: AI-driven from day one
+          writing: Writing your listings…
+        sub: One platform for how wholesale actually runs.
+        title: Simple. Smart. Compliant.
   locales:
     ar: العربية
     en: English

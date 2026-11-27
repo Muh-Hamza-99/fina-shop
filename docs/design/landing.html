@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FinaShop | Wholesale e-commerce platform</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--ink:#0E1116;--muted:#5A6072;--bg:#FBFCF7;--bg2:#F6F7FA;--card:#fff;--lime:#E3FF8F;--lime-2:#D4F76A;--lime-line:#E4F5A8;--indigo:#5B5FEF;--night:#0B0B0B;--navy:#1B1D2B;--line:#ECEEF3;--shadow:0 18px 40px -22px rgba(30,36,80,.25);
+--h:'Inter Tight','Plus Jakarta Sans',system-ui,sans-serif;--b:'Plus Jakarta Sans',system-ui,sans-serif;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--b);-webkit-font-smoothing:antialiased;overflow-x:hidden;
+background-image:radial-gradient(60% 40% at 10% 0%,rgba(227,255,143,.35),transparent 70%),radial-gradient(50% 40% at 100% 55%,rgba(91,95,239,.12),transparent 70%)}
+a{color:inherit;text-decoration:none}p{margin:0;color:var(--muted)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--h);font-weight:700;letter-spacing:-.045em;line-height:1;margin:0}
+h1{font-size:clamp(46px,8vw,92px)}h2{font-size:clamp(34px,5vw,60px)}h3{font-size:22px;letter-spacing:-.02em;line-height:1.2}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;font:600 13px/1 var(--b);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.eyebrow:before{content:"✦";color:var(--indigo);font-size:15px;letter-spacing:0}
+.nav{position:sticky;top:calc(12px + env(safe-area-inset-top,0px));z-index:20;margin:12px auto 0;max-width:1180px;display:flex;align-items:center;gap:28px;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border:1px solid var(--lime-line);border-radius:999px;padding:10px 12px 10px 28px;box-shadow:var(--shadow)}
+.logo{font:700 26px var(--h);letter-spacing:-.06em}.logo i{font-style:normal;color:var(--indigo)}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0 auto 0 8px;padding:0;font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 28px;font:500 17px var(--b);border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);color:var(--ink);transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}.btn:focus-visible,a:focus-visible{outline:3px solid var(--indigo);outline-offset:3px}
+.btn.lime{background:var(--lime);border-color:var(--lime-2);box-shadow:0 0 0 5px rgba(227,255,143,.45),var(--shadow)}
+.hero{text-align:center;padding:96px 0 0;position:relative;overflow:hidden}
+.hero h1{margin:26px auto 24px;max-width:900px}.hero .sub{max-width:640px;margin:0 auto 36px;font-size:20px}
+.row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.glyphs{position:absolute;inset:-60px 0 0;z-index:-1;font:500 22px var(--h);color:var(--muted);opacity:.14;line-height:3.2;letter-spacing:2.2em;word-break:break-all;user-select:none;animation:drift 40s linear infinite;
+-webkit-mask-image:radial-gradient(70% 70% at 50% 35%,#000,transparent);mask-image:radial-gradient(70% 70% at 50% 35%,#000,transparent)}
+@keyframes drift{to{transform:translateY(70px)}}
+.app{margin:56px auto 0;max-width:1000px;display:grid;grid-template-columns:200px 1fr;background:var(--navy);border-radius:28px 28px 0 0;text-align:left;box-shadow:0 40px 80px -40px rgba(20,24,60,.5);overflow:hidden}
+.side{padding:24px 16px;color:#fff;font-weight:500;font-size:15px;display:grid;gap:6px;align-content:start}
+.side .logo{padding:0 10px 18px;color:#fff}.side span{padding:12px 14px;border-radius:12px;color:#C9CCDA}.side .on{background:var(--lime);color:#0E1116}
+.main{background:#E9E9EF;margin:10px 10px 0 0;border-radius:20px 20px 0 0;padding:22px;display:grid;grid-template-columns:1fr 1.2fr;gap:16px;color:#0E1116;min-height:300px}
+.panel{background:#fff;border-radius:20px;padding:20px;overflow:hidden}.panel>b{font:700 20px var(--h);letter-spacing:-.02em;display:block}
+.chip{display:inline-flex;gap:6px;align-items:center;background:var(--lime);border-radius:999px;padding:6px 12px;font:600 13px var(--b);color:#0E1116}
+.chip.w{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.av{width:48px;height:48px;border-radius:14px;background:var(--lime);display:grid;place-items:center;font:700 16px var(--h);color:#0E1116;flex:none}
+.orders{display:grid;gap:8px;margin-top:12px;height:196px;align-content:start}
+.ord{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:14px;font-size:14px;animation:slidein .5s ease both}
+.ord b{margin-inline-start:auto;font-family:var(--h)}.ord small{display:block;color:#6B7183}.ord.new{background:#F3FDD3;border-color:var(--lime-2)}
+@keyframes slidein{from{opacity:0;transform:translateY(-14px)}}
+.toast{position:absolute;right:8px;top:-14px}
+section{padding:96px 0}.head{text-align:center;margin-bottom:56px}.head h2{margin:20px auto 16px;max-width:820px}.head p{font-size:19px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:#fff;border:1px solid var(--lime-line);border-radius:32px;padding:32px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:20px;min-height:460px;overflow:hidden}
+.card .vis{margin:auto 0}.card .foot{border-top:1px solid var(--line);padding-top:20px}
+.card.dark{background:radial-gradient(70% 40% at 20% 0%,rgba(150,160,60,.35),transparent),var(--night);color:#fff;border:2px solid var(--lime-2)}
+.card.dark p,.card.dark .eyebrow{color:#BFC3CE}.card.dark .foot{border-color:#2A2C30}
+.marq{overflow:hidden;display:grid;gap:12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.track{display:flex;gap:12px;width:max-content;animation:scroll 14s linear infinite}.track.r{animation-direction:reverse;animation-duration:18s}
+.track span{background:var(--lime);border-radius:999px;padding:14px 22px;font:600 17px var(--b);white-space:nowrap}.track.r span{background:#EEFBC4}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.ai{background:#161616;border:1px solid #2C2E33;border-radius:20px;padding:22px;display:grid;gap:14px;font-size:15px}
+.ai .l{display:flex;justify-content:space-between;align-items:center}
+.bar{height:8px;border-radius:8px;background:#2C2E33;overflow:hidden}.bar i{display:block;height:100%;background:var(--lime-2);border-radius:8px;animation:fill 6s ease-in-out infinite}
+@keyframes fill{0%{width:4%}70%,92%{width:100%}100%{width:4%}}
+.msg{position:relative;height:22px;color:var(--lime-2)}.msg span{position:absolute;inset:0;opacity:0;animation:cyc 6s infinite}
+.msg span:nth-child(2){animation-delay:2s}.msg span:nth-child(3){animation-delay:4s}
+@keyframes cyc{0%{opacity:0;transform:translateY(6px)}6%,30%{opacity:1;transform:none}36%,100%{opacity:0}}
+.inv{border:1px solid var(--line);border-radius:20px;padding:20px;display:grid;gap:16px}
+.inv .t{display:flex;justify-content:space-between;align-items:baseline}.inv .t b{font:700 34px var(--h);letter-spacing:-.04em}
+.steps{display:grid;gap:10px}.stp{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:14px;border:1px solid var(--line);font-size:15px;color:var(--muted);animation:lit 6s infinite}
+.stp:nth-child(2){animation-delay:2s}.stp:nth-child(3){animation-delay:4s}
+.stp:before{content:"";width:12px;height:12px;border-radius:50%;border:2px solid #CDD1DC;flex:none}
+@keyframes lit{0%{background:#fff;color:var(--muted);border-color:var(--line)}6%,30%{background:#F3FDD3;color:#0E1116;border-color:var(--lime-2)}36%,100%{background:#fff;color:#0E1116;border-color:var(--line)}}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:96px}.split:last-child{margin:0}
+.split h2{margin:20px 0 18px;font-size:clamp(34px,4.6vw,54px)}.split p{font-size:19px;max-width:440px;margin-bottom:24px}
+.link{font-weight:500;border-bottom:2px solid var(--lime-2)}
+.stage{background:linear-gradient(180deg,var(--bg2),#fff);border-radius:32px;box-shadow:var(--shadow);border:1px solid var(--line);padding:48px 36px}
+.mini{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:20px;display:grid;gap:12px}
+.mini .top{display:flex;gap:14px;align-items:center}.mini .top>b{margin-inline-start:auto;font:700 20px var(--h)}.mini small{color:var(--muted);display:block}
+.fl{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:15px;opacity:.35;transform:translateY(8px);transition:.5s}
+.fl:after{content:"✓";margin-inline-start:auto;width:22px;height:22px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-size:13px;opacity:0;transform:scale(.4);transition:.4s}
+.in .fl{opacity:1;transform:none;background:#fff}.in .fl:after{opacity:1;transform:none}
+.in .fl:nth-of-type(2),.in .fl:nth-of-type(2):after{transition-delay:.7s}.in .fl:nth-of-type(3),.in .fl:nth-of-type(3):after{transition-delay:1.4s}.in .fl:nth-of-type(4),.in .fl:nth-of-type(4):after{transition-delay:2.1s}
+.in .fl:last-of-type{background:#F3FDD3;border-color:var(--lime-2)}
+.mark{background:var(--lime);border-radius:999px;padding:0 .25em;box-shadow:0 0 40px rgba(227,255,143,.8)}
+.cta{background:radial-gradient(60% 80% at 30% 0%,#2E2F33,transparent),var(--night);border-radius:40px;padding:80px 32px;text-align:center;color:#fff;margin-top:40px}
+.cta p{color:#BFC3CE;max-width:560px;margin:18px auto 32px;font-size:19px}.cta .btn.k{background:#000;color:#fff;border-color:#2A2C30}
+footer{border-top:1px solid var(--line);padding:64px 0 48px;margin-top:96px;color:var(--muted)}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:32px}.fg h4{margin:0 0 18px;font:600 13px var(--b);letter-spacing:.16em;text-transform:uppercase}
+.fg a{display:block;margin-bottom:12px;color:var(--ink)}.fg p{max-width:340px;margin-top:20px}
+.zatca{display:inline-block;margin-top:18px;background:var(--lime);border-radius:999px;padding:8px 16px;font:600 13px var(--b);color:#0E1116}
+.copy{margin-top:40px;font-size:14px}
+@media(max-width:900px){.nav ul,.nav .btn.o{display:none}.nav{padding-inline-start:20px}.grid3,.split,.fg{grid-template-columns:1fr}.app{grid-template-columns:1fr}.side{display:none}.main{margin:10px 10px 0;grid-template-columns:1fr}.card{min-height:0}.stage{padding:28px 14px}section{padding:64px 0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.fl{opacity:1;transform:none}.fl:after{opacity:1;transform:none}.bar i{width:100%}.msg span:nth-child(3){opacity:1}}
+</style>
+</head>
+<body>
+<div class="wrap"><nav class="nav" aria-label="Main">
+<a class="logo" href="#">fina<i>✦</i>shop</a>
+<ul><li><a href="#why">Why FinaShop</a></li><li><a href="#sell">How it works</a></li><li><a href="https://fina.shop/pricing">Pricing</a></li></ul>
+<a class="btn o" href="#">Log in</a><a class="btn lime" href="#cta">Get Started</a></nav></div>
+
+<header class="hero"><div class="glyphs" aria-hidden="true">﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥ ﷼ $ € £ ¥</div>
+<div class="wrap">
+<span class="eyebrow">AI-driven wholesale e-commerce</span>
+<h1>Maximize your wholesale returns.</h1>
+<p class="sub">FinaShop gives your wholesale business an AI-driven e-commerce presence, with logistics, payments and ZATCA-compliant invoicing built in.</p>
+<div class="row"><a class="btn" href="https://fina.shop/pricing">See pricing →</a><a class="btn lime" href="#cta">Get Started</a></div>
+<div class="app" aria-label="FinaShop dashboard preview">
+<div class="side"><div class="logo">fina<i>✦</i>shop</div><span>Dashboard</span><span class="on">Orders &amp; Invoices</span><span>Products</span><span>Reports</span></div>
+<div class="main">
+<div class="panel"><b>Your store</b><div style="display:flex;gap:14px;align-items:center;margin:16px 0"><div class="av" style="width:64px;height:64px;font-size:26px">N</div><div><b style="font:700 18px var(--h)">Nakhla Trading</b><span class="chip" style="margin-top:6px">● Wholesale</span></div></div></div>
+<div class="panel" style="position:relative"><b>Orders &amp; invoices</b><span class="chip toast" id="toast">✓ New order</span><div class="orders" id="orders" aria-live="off"></div></div>
+</div></div></div></header>
+
+<section id="why"><div class="wrap">
+<div class="head"><span class="eyebrow">Why FinaShop</span><h2>Simple. Smart. Compliant.</h2><p>One platform for how wholesale actually runs.</p></div>
+<div class="grid3">
+<article class="card"><span class="eyebrow">Simple</span><h3>Logistics and payments, built in</h3>
+<div class="vis marq"><div class="track"><span>Add products</span><span>Activate logistics</span><span>Accept payments</span><span>Issue invoices</span><span>Add products</span><span>Activate logistics</span><span>Accept payments</span><span>Issue invoices</span></div>
+<div class="track r"><span>Deliver orders</span><span>Manage your catalog</span><span>Serve customers</span><span>Deliver orders</span><span>Manage your catalog</span><span>Serve customers</span><span>Deliver orders</span><span>Manage your catalog</span><span>Serve customers</span></div></div>
+<div class="foot"><p>Turn on delivery and payment services right from your account when you register.</p></div></article>
+<article class="card dark"><span class="eyebrow">Smart</span><h3>AI-driven from day one</h3>
+<div class="vis ai"><div class="l"><span>Your e-commerce presence</span><b>Building</b></div><div class="bar"><i></i></div><div class="msg"><span>Reading your products…</span><span>Writing your listings…</span><span>✓ Your store is ready</span></div></div>
+<div class="foot"><p>An AI-driven e-commerce presence that works to maximize your wholesale returns.</p></div></article>
+<article class="card"><span class="eyebrow">Compliant</span><h3>ZATCA e-invoicing, Phase 1 &amp; 2 ready</h3>
+<div class="vis inv"><div class="t"><b>Invoice</b><small style="color:var(--muted)">#INV-2041</small></div><div class="steps"><div class="stp">Invoice created</div><div class="stp">Signed and stamped</div><div class="stp">Reported to ZATCA</div></div></div>
+<div class="foot"><p>Every order can become a compliant invoice, with no extra tool to run.</p></div></article>
+</div></div></section>
+
+<section style="background:var(--bg2)"><div class="wrap">
+<div class="split" id="buy"><div><span class="eyebrow">Your catalog</span><h2>Add products.<br>Right from your phone.</h2><p>Snap a photo, list the product and manage your store with the FinaShop app.</p><a class="link" href="https://fina.shop/pricing">See pricing ↗</a></div>
+<div class="stage io"><div class="mini"><div class="top"><div class="av">N</div><div><b style="font:700 17px var(--h)">Arabica coffee, 12kg</b><small>Dry goods · Wholesale</small></div></div>
+<div class="fl">Photo added</div><div class="fl">Product listed</div><div class="fl">Order received</div><div class="fl">Invoice issued</div></div></div></div>
+<div class="split" id="sell"><div class="stage io"><div class="mini"><div class="top"><div class="av">NM</div><div><b style="font:700 17px var(--h)">Nakhla Mart</b><small>Order #8841</small></div><b>SAR 12,400</b></div>
+<div class="fl">Order placed</div><div class="fl">Picked up by delivery partner</div><div class="fl">Payment received</div><div class="fl">E-invoice sent</div></div></div>
+<div><span class="eyebrow">Your orders</span><h2>Sell. Ship.<br>Get paid.</h2><p>From checkout to delivery to payment, every order stays in one place.</p><a class="link" href="#cta">Get Started ↗</a></div></div>
+</div></section>
+
+<section id="cta" style="padding-bottom:0"><div class="wrap">
+<div class="head" style="margin:0"><h2>Sell More. <span class="mark">Earn More.</span></h2></div>
+<div class="cta"><h3 style="font-size:clamp(26px,3.4vw,40px);letter-spacing:-.03em">Ready to maximize your returns?</h3><p>Talk to our team in Dammam, or start your store today.</p>
+<div class="row"><a class="btn" href="https://wa.me/966550675738" rel="noopener">WhatsApp →</a><a class="btn" href="mailto:apps@finapay.ai">Email us →</a><a class="btn k" href="#">Get Started →</a></div></div>
+</div></section>
+
+<footer><div class="wrap"><div class="fg">
+<div><div class="logo" style="color:var(--ink)">fina<i>✦</i>shop</div><p>Maximize Your Wholesale Returns Through An AI-Driven E-Commerce Presence</p><span class="zatca">ZATCA-compliant e-invoicing • Phase 1 &amp; 2 ready</span></div>
+<div><h4>Company</h4><a href="#why">About</a><a href="https://fina.shop/pricing">Pricing</a><a href="https://fina.shop/privacy">Privacy Policy</a><a href="https://fina.shop/terms">Terms &amp; Conditions</a></div>
+<div><h4>Contact us</h4><a href="tel:+966545002668">+966 54 500 2668</a><a href="https://wa.me/966550675738">+966 55 067 5738</a><a href="mailto:apps@finapay.ai">apps@finapay.ai</a><span>Dammam, Kingdom of Saudi Arabia</span></div>
+</div><div class="copy">© 2026 FinaShop. All rights reserved.</div></div></footer>
+
+<script>
+(function(){
+var data=[["AF","Alfaisal Foods","SAR 8,200"],["NM","Nakhla Mart","SAR 12,400"],["WG","Wahat Grocers","SAR 8,150"],["RS","Red Sea Supplies","SAR 3,150"],["NJ","Najd Wholesale","SAR 5,900"]],i=0,box=document.getElementById("orders"),toast=document.getElementById("toast");
+function row(d,n){var e=document.createElement("div");e.className="ord"+(n?" new":"");e.innerHTML='<div class="av" style="width:36px;height:36px;font-size:13px;border-radius:10px">'+d[0]+'</div><div>'+d[1]+'<small>E-invoice sent</small></div><b>'+d[2]+'</b>';return e}
+for(var k=2;k>=0;k--)box.appendChild(row(data[k]));i=3;
+var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+if(!reduce)setInterval(function(){var d=data[i++%data.length];box.insertBefore(row(d,1),box.firstChild);
+if(box.children.length>4)box.removeChild(box.lastChild);
+if(box.children[1])box.children[1].classList.remove("new");
+toast.style.animation="none";toast.offsetWidth;toast.style.animation="slidein .5s ease both"},3200);
+var els=document.querySelectorAll(".io");
+if(reduce||!("IntersectionObserver"in window)){els.forEach(function(e){e.classList.add("in")})}
+else{var o=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");o.unobserve(x.target)}})},{threshold:.4});els.forEach(function(e){o.observe(e)})}
+})();
+</script>
+</body>
+</html>

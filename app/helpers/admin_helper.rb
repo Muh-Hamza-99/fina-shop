@@ -3,7 +3,7 @@ module AdminHelper
   def admin_nav_link(label, path, section:)
     active = controller_name == section
     link_to label, path,
-      class: [ "block whitespace-nowrap rounded-md px-3 py-2", active ? "bg-gray-900 text-white" : "text-gray-700 hover:bg-gray-100" ],
+      class: [ "block whitespace-nowrap rounded-xl px-3.5 py-3 font-medium", active ? "bg-lime text-ink" : "text-navy-text hover:bg-white/5 hover:text-white" ],
       aria: { current: ("page" if active) }
   end
 

@@ -1,15 +1,207 @@
-<% content_for :title, t(".title") %>
+<% content_for :title, "#{t("app_name")} | #{t(".hero.eyebrow")}" %>
+<% signup_url = admin_signup_url(host: Hosts.admin_host) %>
+<% arrow = tag.span("→", class: "flip-rtl", aria: { hidden: true }) %>
+<% orders = landing_preview_orders %>
 
-<div class="w-full">
-  <div class="flex justify-end mb-8">
-    <%= render "shared/locale_switcher" %>
+<div class="landing">
+  <div class="wrap">
+    <nav class="nav" aria-label="<%= t(".nav.label") %>">
+      <%= link_to root_path, class: "logo" do %>fina<i>✦</i>shop<% end %>
+      <ul>
+        <li><a href="#why"><%= t(".nav.why") %></a></li>
+        <li><a href="#sell"><%= t(".nav.how") %></a></li>
+      </ul>
+      <div class="tools">
+        <span class="hide-mobile"><%= render "shared/locale_switcher" %></span>
+        <%= link_to t(".nav.login"), new_admin_session_url(host: Hosts.admin_host), class: "btn hide-mobile" %>
+        <%= link_to t(".nav.get_started"), signup_url, class: "btn btn-lime" %>
+      </div>
+    </nav>
   </div>
 
-  <h1 class="text-4xl font-bold"><%= t(".title") %></h1>
-  <p class="mt-4 text-lg text-gray-600"><%= t(".tagline") %></p>
+  <header class="hero">
+    <div class="glyphs" aria-hidden="true"><%= ("﷼ $ € £ ¥ " * 20).strip %></div>
+    <div class="wrap">
+      <span class="eyebrow"><%= t(".hero.eyebrow") %></span>
+      <h1><%= t(".hero.title") %></h1>
+      <p class="sub"><%= t(".hero.sub") %></p>
+      <div class="row">
+        <a class="btn" href="#sell"><%= t(".hero.how_it_works") %> <%= arrow %></a>
+        <%= link_to t(".nav.get_started"), signup_url, class: "btn btn-lime" %>
+      </div>
 
-  <div class="mt-8 flex flex-wrap items-center gap-4">
-    <%= link_to t(".start_free"), admin_signup_url(host: Hosts.admin_host), class: "btn-primary" %>
-    <%= link_to t(".have_account"), new_admin_session_url(host: Hosts.admin_host), class: "link-subtle" %>
-  </div>
+      <div class="app" aria-label="<%= t(".preview.label") %>">
+        <div class="side">
+          <div class="logo">fina<i>✦</i>shop</div>
+          <span><%= t(".preview.dashboard") %></span>
+          <span class="on"><%= t(".preview.orders_and_invoices") %></span>
+          <span><%= t(".preview.products") %></span>
+          <span><%= t(".preview.reports") %></span>
+        </div>
+        <div class="main">
+          <div class="panel">
+            <b><%= t(".preview.your_store") %></b>
+            <div class="flex items-center gap-3.5 my-4">
+              <div class="avatar size-16 text-[26px]"><%= t(".preview.store_initial") %></div>
+              <div>
+                <b class="block font-display text-lg font-bold"><%= t(".preview.store_name") %></b>
+                <span class="chip mt-1.5">● <%= t(".preview.wholesale") %></span>
+              </div>
+            </div>
+          </div>
+          <div class="panel relative" data-controller="order-feed" data-order-feed-orders-value="<%= orders.to_json %>">
+            <b><%= t(".preview.orders_and_invoices") %></b>
+            <span class="chip w toast" data-order-feed-target="toast">✓ <%= t(".preview.new_order") %></span>
+            <template data-order-feed-target="row">
+              <%= render "home/preview_order", order: [ "", "", "" ] %>
+            </template>
+            <div class="orders" data-order-feed-target="list">
+              <% orders.first(3).reverse_each do |order| %>
+                <%= render "home/preview_order", order: order %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow"><%= t(".why.eyebrow") %></span>
+        <h2><%= t(".why.title") %></h2>
+        <p><%= t(".why.sub") %></p>
+      </div>
+      <div class="grid3">
+        <article class="card">
+          <span class="eyebrow"><%= t(".why.simple.eyebrow") %></span>
+          <h3><%= t(".why.simple.title") %></h3>
+          <div class="vis marq" dir="ltr">
+            <% [ [ t(".why.simple.strip_1"), "" ], [ t(".why.simple.strip_2"), "r" ] ].each do |items, direction| %>
+              <div class="track <%= direction %>">
+                <% (items * 2).each do |item| %><span dir="auto"><%= item %></span><% end %>
+              </div>
+            <% end %>
+          </div>
+          <div class="foot"><p><%= t(".why.simple.foot") %></p></div>
+        </article>
+
+        <article class="card dark">
+          <span class="eyebrow"><%= t(".why.smart.eyebrow") %></span>
+          <h3><%= t(".why.smart.title") %></h3>
+          <div class="vis ai">
+            <div class="l"><span><%= t(".why.smart.presence") %></span><b><%= t(".why.smart.building") %></b></div>
+            <div class="bar"><i></i></div>
+            <div class="msg">
+              <span><%= t(".why.smart.reading") %></span>
+              <span><%= t(".why.smart.writing") %></span>
+              <span>✓ <%= t(".why.smart.ready") %></span>
+            </div>
+          </div>
+          <div class="foot"><p><%= t(".why.smart.foot") %></p></div>
+        </article>
+
+        <article class="card">
+          <span class="eyebrow"><%= t(".why.compliant.eyebrow") %></span>
+          <h3><%= t(".why.compliant.title") %></h3>
+          <div class="vis inv">
+            <div class="t"><b><%= t(".why.compliant.invoice") %></b><small class="text-muted" dir="ltr">#INV-2041</small></div>
+            <div class="steps">
+              <% t(".why.compliant.steps").each do |step| %><div class="stp"><%= step %></div><% end %>
+            </div>
+          </div>
+          <div class="foot"><p><%= t(".why.compliant.foot") %></p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-mist">
+    <div class="wrap">
+      <div class="split" id="catalog">
+        <div>
+          <span class="eyebrow"><%= t(".catalog.eyebrow") %></span>
+          <h2><%= t(".catalog.title_1") %><br><%= t(".catalog.title_2") %></h2>
+          <p><%= t(".catalog.body") %></p>
+          <%= link_to signup_url, class: "link" do %><%= t(".nav.get_started") %> <span class="flip-rtl" aria-hidden="true">↗</span><% end %>
+        </div>
+        <div class="stage" data-controller="reveal">
+          <div class="mini">
+            <div class="top">
+              <div class="avatar"><%= t(".preview.store_initial") %></div>
+              <div>
+                <b class="font-display text-[17px] font-bold"><%= t(".catalog.product") %></b>
+                <small><%= t(".catalog.product_meta") %></small>
+              </div>
+            </div>
+            <% t(".catalog.steps").each do |step| %><div class="fl"><%= step %></div><% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="split" id="sell">
+        <div class="stage" data-controller="reveal">
+          <div class="mini">
+            <div class="top">
+              <div class="avatar"><%= t(".orders.customer_initials") %></div>
+              <div>
+                <b class="font-display text-[17px] font-bold"><%= t(".orders.customer") %></b>
+                <small><%= t(".orders.order_html", number: tag.bdi("#8841", dir: "ltr")) %></small>
+              </div>
+              <b><%= sar(1_240_000) %></b>
+            </div>
+            <% t(".orders.steps").each do |step| %><div class="fl"><%= step %></div><% end %>
+          </div>
+        </div>
+        <div>
+          <span class="eyebrow"><%= t(".orders.eyebrow") %></span>
+          <h2><%= t(".orders.title_1") %><br><%= t(".orders.title_2") %></h2>
+          <p><%= t(".orders.body") %></p>
+          <%= link_to signup_url, class: "link" do %><%= t(".nav.get_started") %> <span class="flip-rtl" aria-hidden="true">↗</span><% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta" class="pb-0!">
+    <div class="wrap">
+      <div class="head m-0!"><h2><%= t(".cta.sell_more") %> <span class="mark"><%= t(".cta.earn_more") %></span></h2></div>
+      <div class="cta">
+        <h3><%= t(".cta.title") %></h3>
+        <p><%= t(".cta.body") %></p>
+        <div class="row">
+          <a class="btn" href="https://wa.me/966550675738" rel="noopener"><%= t(".cta.whatsapp") %> <%= arrow %></a>
+          <a class="btn" href="mailto:apps@finapay.ai"><%= t(".cta.email") %> <%= arrow %></a>
+          <%= link_to signup_url, class: "btn btn-dark" do %><%= t(".nav.get_started") %> <%= arrow %><% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="fg">
+        <div>
+          <div class="logo">fina<i>✦</i>shop</div>
+          <p><%= t(".footer.tagline") %></p>
+          <span class="chip zatca"><%= t(".footer.zatca") %></span>
+        </div>
+        <div>
+          <h4><%= t(".footer.company") %></h4>
+          <a href="#why"><%= t(".nav.why") %></a>
+          <a href="#sell"><%= t(".nav.how") %></a>
+          <%= link_to t(".nav.login"), new_admin_session_url(host: Hosts.admin_host) %>
+        </div>
+        <div>
+          <h4><%= t(".footer.contact") %></h4>
+          <a href="tel:+966545002668" dir="ltr">+966 54 500 2668</a>
+          <a href="https://wa.me/966550675738" dir="ltr">+966 55 067 5738</a>
+          <a href="mailto:apps@finapay.ai">apps@finapay.ai</a>
+          <span><%= t(".footer.location") %></span>
+        </div>
+      </div>
+      <div class="copy">© <%= Date.current.year %> FinaShop. <%= t(".footer.rights") %></div>
+    </div>
+  </footer>
 </div>

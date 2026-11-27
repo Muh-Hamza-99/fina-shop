@@ -1,1 +1,16 @@
 <%= render "admin/shared/page_header", title: t(".title"), subtitle: t(".welcome") %>
+
+<div class="grid gap-4 lg:grid-cols-2">
+  <div class="panel">
+    <b class="font-display text-xl font-bold"><%= t(".your_store") %></b>
+    <div class="mt-4 flex items-center gap-3.5">
+      <div class="avatar size-16 text-[26px]" aria-hidden="true"><%= Current.store.name.first %></div>
+      <div class="min-w-0">
+        <b class="block truncate font-display text-lg font-bold"><%= Current.store.name %></b>
+        <% if Current.store.trialing? && Current.store.trial_ends_at %>
+          <span class="chip mt-1.5" id="trial_status">● <%= t(".trial_days_left", days: [ (Current.store.trial_ends_at.to_date - Date.current).to_i, 0 ].max) %></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
