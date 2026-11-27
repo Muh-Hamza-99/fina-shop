@@ -13,16 +13,16 @@
   <%= form_with model: @signup, url: admin_signup_path, scope: :signup, class: "contents" do |form| %>
     <h2 class="mt-8 text-xl font-semibold"><%= t(".store_info") %></h2>
 
-    <%= render "field", form: form, field: :store_name_ar, label: t(".store_name_ar") do %>
+    <%= render "admin/shared/field", form: form, field: :store_name_ar, label: t(".store_name_ar") do %>
       <%= form.text_field :store_name_ar, required: true, autofocus: true, dir: "rtl", class: "form-input" %>
     <% end %>
 
-    <%= render "field", form: form, field: :store_name_en, label: t(".store_name_en") do %>
+    <%= render "admin/shared/field", form: form, field: :store_name_en, label: t(".store_name_en") do %>
       <%= form.text_field :store_name_en, dir: "ltr", class: "form-input" %>
     <% end %>
 
     <div data-controller="subdomain-preview" data-subdomain-preview-template-value="<%= t(".subdomain_preview", url: "__url__") %>">
-      <%= render "field", form: form, field: :subdomain, label: t(".subdomain"),
+      <%= render "admin/shared/field", form: form, field: :subdomain, label: t(".subdomain"),
             hint: t(".subdomain_preview", url: "#{@signup.subdomain.presence || "…"}.#{Hosts.root_domain}"),
             hint_data: { subdomain_preview_target: "preview" } do %>
         <div class="flex items-center gap-2" dir="ltr">
@@ -37,19 +37,19 @@
 
     <h2 class="mt-8 text-xl font-semibold"><%= t(".account_info") %></h2>
 
-    <%= render "field", form: form, field: :name, label: t(".name") do %>
+    <%= render "admin/shared/field", form: form, field: :name, label: t(".name") do %>
       <%= form.text_field :name, required: true, minlength: 2, autocomplete: "name", class: "form-input" %>
     <% end %>
 
-    <%= render "field", form: form, field: :email_address, label: t(".email") do %>
+    <%= render "admin/shared/field", form: form, field: :email_address, label: t(".email") do %>
       <%= form.email_field :email_address, required: true, autocomplete: "username", dir: "ltr", class: "form-input" %>
     <% end %>
 
-    <%= render "field", form: form, field: :password, label: t(".password") do %>
+    <%= render "admin/shared/field", form: form, field: :password, label: t(".password") do %>
       <%= form.password_field :password, required: true, minlength: 8, maxlength: 72, autocomplete: "new-password", dir: "ltr", class: "form-input" %>
     <% end %>
 
-    <%= render "field", form: form, field: :password_confirmation, label: t(".password_confirmation") do %>
+    <%= render "admin/shared/field", form: form, field: :password_confirmation, label: t(".password_confirmation") do %>
       <%= form.password_field :password_confirmation, required: true, minlength: 8, maxlength: 72, autocomplete: "new-password", dir: "ltr", class: "form-input" %>
     <% end %>
 

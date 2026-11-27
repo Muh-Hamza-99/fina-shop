@@ -1,0 +1,23 @@
+ovens:
+  store: elshohail
+  name_ar: أفران
+  name_en: Ovens
+  position: 1
+
+commercial_ovens:
+  store: elshohail
+  parent: ovens
+  name_ar: أفران تجارية
+  name_en: Commercial Ovens
+  position: 1
+
+mixers:
+  store: elshohail
+  name_ar: خلاطات
+  name_en: Mixers
+  position: 2
+
+bare_drinks:
+  store: bare
+  name_ar: مشروبات
+  position: 1

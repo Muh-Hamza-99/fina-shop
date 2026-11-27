@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       root "dashboards#show"
 
       resources :products, only: :index
-      resources :categories, only: :index
+      resources :categories, except: :show
       resources :quote_requests, only: :index
       resources :customers, only: :index
       resource :analytics, only: :show

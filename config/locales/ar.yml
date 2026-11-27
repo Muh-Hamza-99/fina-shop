@@ -2,6 +2,13 @@
 ar:
   activerecord:
     attributes:
+      category:
+        active: تصنيف نشط
+        description_ar: الوصف (عربي)
+        description_en: الوصف (إنجليزي)
+        name_ar: اسم التصنيف (عربي)
+        name_en: اسم التصنيف (إنجليزي)
+        parent_id: التصنيف الأب
       store:
         building_number: رقم المبنى
         city: المدينة
@@ -33,6 +40,13 @@ ar:
         role: الدور
     errors:
       models:
+        category:
+          attributes:
+            name_ar:
+              blank: اسم التصنيف مطلوب
+              taken: يوجد تصنيف بنفس الاسم هنا
+            parent_id:
+              invalid: اختر تصنيفاً أب من متجرك (حتى ٣ مستويات)
         store:
           attributes:
             subdomain:
@@ -52,6 +66,7 @@ ar:
             password_confirmation:
               confirmation: كلمات المرور غير متطابقة
     models:
+      category: تصنيف
       store: متجر
       user: مستخدم
   admin:
@@ -64,9 +79,49 @@ ar:
         subtitle: إدارة باقتك وتفاصيل الفواتير
         title: الفواتير والباقات
     categories:
+      category:
+        add_subcategory: إضافة تصنيف فرعي
+        delete: حذف
+        edit: تعديل
+        hidden: مخفي
+        hide: إخفاء
+        show: إظهار
+      create:
+        created: تم إضافة التصنيف بنجاح
+      delete_children_warning:
+        few: سيتم نقل %{count} تصنيفات فرعية إلى التصنيف الأب.
+        many: سيتم نقل %{count} تصنيفاً فرعياً إلى التصنيف الأب.
+        one: سيتم نقل تصنيف فرعي واحد إلى التصنيف الأب.
+        other: سيتم نقل %{count} تصنيف فرعي إلى التصنيف الأب.
+        two: سيتم نقل تصنيفين فرعيين إلى التصنيف الأب.
+        zero: سيتم نقل %{count} تصنيف فرعي إلى التصنيف الأب.
+      delete_confirm: هل أنت متأكد من حذف تصنيف "%{name}"؟
+      destroy:
+        destroyed: تم حذف التصنيف بنجاح
+      edit:
+        title: تعديل التصنيف
+      form:
+        active: تصنيف نشط
+        active_hint: ظهور التصنيف في المتجر
+        cancel: إلغاء
+        description_ar: الوصف (عربي)
+        description_en: الوصف (إنجليزي)
+        name_ar: اسم التصنيف (عربي)
+        name_en: اسم التصنيف (إنجليزي)
+        no_parent: بدون (تصنيف رئيسي)
+        parent: التصنيف الأب
+        parent_hint: اختر تصنيف أب لإنشاء تسلسل هرمي
+        save: حفظ التغييرات
       index:
+        add: إضافة تصنيف
+        empty_description: ابدأ بإضافة تصنيفات لتنظيم منتجاتك بشكل أفضل
+        empty_title: ما فيه تصنيفات حتى الآن
         subtitle: رتّب منتجاتك ضمن تصنيفات رئيسية وفرعية
         title: التصنيفات
+      new:
+        title: إضافة تصنيف جديد
+      update:
+        updated: تم تحديث التصنيف بنجاح
     customers:
       index:
         subtitle: بيظهر العملاء هنا عند استلام طلبات التسعير

@@ -1,0 +1,36 @@
+<%# locals: (category:) -%>
+<%= form_with model: [ :admin, category ], class: "max-w-2xl" do |form| %>
+  <%= render "admin/shared/field", form: form, field: :name_ar, label: t(".name_ar") do %>
+    <%= form.text_field :name_ar, required: true, autofocus: true, dir: "rtl", class: "form-input" %>
+  <% end %>
+
+  <%= render "admin/shared/field", form: form, field: :name_en, label: t(".name_en") do %>
+    <%= form.text_field :name_en, dir: "ltr", class: "form-input" %>
+  <% end %>
+
+  <%= render "admin/shared/field", form: form, field: :parent_id, label: t(".parent"), hint: t(".parent_hint") do %>
+    <%= form.select :parent_id, category.possible_parents.map { |parent| [ "— " * (parent.depth - 1) + parent.name, parent.id ] },
+          { include_blank: t(".no_parent") }, class: "form-input" %>
+  <% end %>
+
+  <%= render "admin/shared/field", form: form, field: :description_ar, label: t(".description_ar") do %>
+    <%= form.text_area :description_ar, rows: 3, dir: "rtl", class: "form-input" %>
+  <% end %>
+
+  <%= render "admin/shared/field", form: form, field: :description_en, label: t(".description_en") do %>
+    <%= form.text_area :description_en, rows: 3, dir: "ltr", class: "form-input" %>
+  <% end %>
+
+  <div class="my-5 flex items-start gap-3">
+    <%= form.check_box :active, class: "mt-1" %>
+    <div>
+      <%= form.label :active, t(".active"), class: "font-medium" %>
+      <p class="text-sm text-gray-500"><%= t(".active_hint") %></p>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-4">
+    <%= form.submit t(".save"), class: "btn-primary" %>
+    <%= link_to t(".cancel"), admin_categories_path, class: "link-subtle" %>
+  </div>
+<% end %>

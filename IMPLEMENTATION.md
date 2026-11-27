@@ -35,7 +35,7 @@
 8. ✅ **Admin shell.** Bilingual sidebar layout (Dashboard, Products, Categories, Quotes, Customers, Analytics, Theme, Settings, Billing) with empty pages + locale switcher + "View store" link to `{slug}.fina.shop`. *Test:* system test navigates every nav link in both locales.
 
 ## Milestone 2 — Catalog & Inventory
-9. **Categories CRUD.** `categories` (store, name_ar, name_en, position, parent_id). *Test:* CRUD + tenant scoping tests.
+9. ✅ **Categories CRUD.** `categories` (store, parent_id, name_ar/en, description_ar/en, position, active), up to three levels (main > sub > sub-sub); deleting moves subcategories up. *Test:* CRUD + tenant scoping tests.
 10. **Products CRUD.** `products` (store, category, sku unique per store, title_ar/en, description_ar/en, `base_price_halalas`, `min_order_qty` default 1, `show_price` nullable → falls back to store default, `status` draft/needs_review/active, `external_pos_sku`), Active Storage `images` (local disk in dev). Validation: `active` requires price > 0 when price shown, sku, category. *Test:* model validations (the "missing price" bug from §1 can't publish); controller CRUD.
 11. **Price tiers.** `price_tiers` per §4.1, nested form on product (e.g. 1–4, 5–14, 15+). *Test:* unique `min_quantity`; tier price ≤ base.
 12. **`Wholesale::QuotePricingCalculator`.** Input: lines `{product, qty}` + discount + shipping → per-line tier unit price, MOQ errors, subtotal, VAT, total. *Test:* pure unit tests for tier boundaries, MOQ violation, VAT rounding, discount > subtotal guard.

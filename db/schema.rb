@@ -10,9 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_27_150201) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_27_160417) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.bigint "parent_id"
+    t.string "name_ar", null: false
+    t.string "name_en"
+    t.text "description_ar"
+    t.text "description_en"
+    t.integer "position", default: 0, null: false
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_categories_on_parent_id"
+    t.index ["store_id", "parent_id", "position"], name: "index_categories_on_store_id_and_parent_id_and_position"
+    t.index ["store_id"], name: "index_categories_on_store_id"
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -70,6 +86,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_27_150201) do
     t.index ["store_id"], name: "index_users_on_store_id"
   end
 
+  add_foreign_key "categories", "categories", column: "parent_id"
+  add_foreign_key "categories", "stores"
   add_foreign_key "sessions", "users"
   add_foreign_key "users", "stores"
 end

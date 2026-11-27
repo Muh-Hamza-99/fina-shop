@@ -1,0 +1,21 @@
+<%# locals: (category:, depth:) -%>
+<li class="flex flex-wrap items-center gap-3 px-4 py-3 <%= { 2 => "ps-10", 3 => "ps-16" }[depth] %>" id="<%= dom_id(category) %>">
+  <div class="min-w-0 flex-1">
+    <span class="font-medium"><%= category.name %></span>
+    <% unless category.active? %>
+      <span class="ms-2 rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-600"><%= t(".hidden") %></span>
+    <% end %>
+  </div>
+
+  <div class="flex items-center gap-3 text-sm">
+    <% if depth < Category::MAX_DEPTH %>
+      <%= link_to t(".add_subcategory"), new_admin_category_path(parent_id: category.id), class: "link-subtle" %>
+    <% end %>
+    <%= link_to t(".edit"), edit_admin_category_path(category), class: "link-subtle" %>
+    <%= button_to category.active? ? t(".hide") : t(".show"), admin_category_path(category),
+          method: :patch, params: { category: { active: !category.active? } }, class: "link-subtle cursor-pointer" %>
+    <%= button_to t(".delete"), admin_category_path(category), method: :delete, class: "text-red-600 hover:underline cursor-pointer",
+          form: { data: { turbo_confirm: delete_category_confirmation(category) } } %>
+  </div>
+</li>
+<%= render partial: "category", collection: category.children, locals: { depth: depth + 1 } %>

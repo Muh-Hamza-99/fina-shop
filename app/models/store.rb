@@ -6,6 +6,7 @@ class Store < ApplicationRecord
   NATIONAL_ADDRESS_FIELDS = %i[region city district street building_number postal_code].freeze
 
   has_many :users, dependent: :destroy
+  has_many :categories, dependent: :delete_all
 
   enum :subscription_status, %w[trialing active past_due canceled].index_by(&:itself), validate: true
 

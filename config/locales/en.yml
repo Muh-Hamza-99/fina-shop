@@ -2,6 +2,13 @@
 en:
   activerecord:
     attributes:
+      category:
+        active: Active Category
+        description_ar: Description (Arabic)
+        description_en: Description (English)
+        name_ar: Category Name (Arabic)
+        name_en: Category Name (English)
+        parent_id: Parent Category
       store:
         building_number: Building Number
         city: City
@@ -33,6 +40,13 @@ en:
         role: Role
     errors:
       models:
+        category:
+          attributes:
+            name_ar:
+              blank: Category name is required
+              taken: A category with this name already exists here
+            parent_id:
+              invalid: Choose a parent category from your store (up to 3 levels)
         store:
           attributes:
             subdomain:
@@ -52,6 +66,7 @@ en:
             password_confirmation:
               confirmation: Passwords do not match
     models:
+      category: Category
       store: Store
       user: User
   admin:
@@ -64,9 +79,45 @@ en:
         subtitle: Manage your subscription plan and billing details
         title: Billing & Subscription
     categories:
+      category:
+        add_subcategory: Add Subcategory
+        delete: Delete
+        edit: Edit
+        hidden: Hidden
+        hide: Hide
+        show: Show
+      create:
+        created: Category added successfully
+      delete_children_warning:
+        one: "%{count} subcategory will be moved to the parent category."
+        other: "%{count} subcategories will be moved to the parent category."
+      delete_confirm: Are you sure you want to delete category "%{name}"?
+      destroy:
+        destroyed: Category deleted successfully
+      edit:
+        title: Edit Category
+      form:
+        active: Active Category
+        active_hint: Show category in store
+        cancel: Cancel
+        description_ar: Description (Arabic)
+        description_en: Description (English)
+        name_ar: Category Name (Arabic)
+        name_en: Category Name (English)
+        no_parent: None (Root Category)
+        parent: Parent Category
+        parent_hint: Select a parent to create a hierarchy
+        save: Save Changes
       index:
+        add: Add Category
+        empty_description: Start by adding categories to organize your products
+        empty_title: No categories
         subtitle: Create a Category Structure for Your Product Catalog
         title: Categories
+      new:
+        title: Add New Category
+      update:
+        updated: Category updated successfully
     customers:
       index:
         subtitle: Customers will appear here when you receive quote requests
